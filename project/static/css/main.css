@@ -1,0 +1,55 @@
+.meter {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+.meter .dial {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  background-color: #333;
+  width: 75px;
+  height: 1px;
+  -webkit-transform-origin: left bottom;
+  -moz-transform-origin: left bottom;
+  -o-transform-origin: left bottom;
+  -ms-transform-origin: left bottom;
+  transform-origin: left bottom;
+}
+.meter .dial.dial-start {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.meter .dial.dial-mid {
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+.meter .dial.dial-end {
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+.meter:before {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  content: '';
+  background: #333;
+  margin: 0 0 -4px -4px;
+  width: 8px;
+  height: 8px;
+  -webkit-border-radius: 50%;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 50%;
+  -moz-background-clip: padding;
+  border-radius: 50%;
+  background-clip: padding-box;
+}
