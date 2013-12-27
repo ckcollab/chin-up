@@ -73,6 +73,7 @@ Page has 2 tabs: Output and Input
 **Output page**
 - A bunch of badass meters for each metric.
 - Graph view over time
+- A list of notes for that current month (useful for making monthly evaluations like how many times did I go in nature)
 
 **Input page**
 - Coming to the input page you should see all of the daily metrics that still need entering.
