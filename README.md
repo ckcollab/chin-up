@@ -7,9 +7,7 @@ To become the best I can be, I need motivation, I need to get my chin up.
 ### How do you measure? ###
 Every metric I believe that significantly effects my motivation and health I will measure on a scale frome 1 to 10.
 
-**1 being** the worst, least effort I could possibly put in
-
-**10 being** the best, most effort I could possibly put in
+**1 being** the worst, least effort I could possibly put in and **10 being** the best, most effort I could possibly put in.
 
 Tracking
 ========
