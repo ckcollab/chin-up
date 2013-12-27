@@ -13,11 +13,21 @@ numbers and statistics.
 
 ### When will you be... done? ###
 I don't ever expect to be a 10 in all areas all the time, so there will always be room for improvment! I need/want some
-motivation in my life these days, it's strange being 25 and having your whole life ahead of you. So crippling to want to
+motivation in my life these days. It's strange being 25 and having your whole life ahead of you. So crippling to want to
 pursue Jiu Jitsu, Fishing, Programming, Gaming, Olympic Lifting, Powerlifting, Traveling, starting a family, etc. etc.
 
-It's extremely difficult to make a decision, especially because of my personality type always wanting to do things perfectly/the right way.
+It's difficult to make a decision, especially because of my personality type always wanting to do things perfectly/the right way.
 I'm hoping this helps me pursue all of those things by simply being a healthy and happy person.
+
+### Isn't this just like a really dumbed down workout tracker? ###
+Totally.
+
+It's not meant to be for one specific goal, but all of my goals boiled down to their most basic components. "Am I motivated"
+at this point is the biggest question I ask myself every day. Ever since my family has left I'm having a hard time feeling
+any worth or contribution to society.
+
+Sometimes it feels like even if I got a world record, made a million dollar idea come to fruition, or wrote some amazingly
+novel programming library I'd still feel unhappy. That's why I need to start worrying about these metrics.
 
 Tracking
 ========
