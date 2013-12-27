@@ -1,6 +1,3 @@
-chin-up
-=======
-
 Daily tracking
 --------------
 - Happy
