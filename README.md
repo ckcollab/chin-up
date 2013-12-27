@@ -23,10 +23,10 @@ I'm hoping this helps me pursue all of those things by simply being a healthy an
 Totally.
 
 It's not meant to be for one specific goal, but all of my goals boiled down to their most basic components. "Am I motivated"
-at this point is the biggest question I ask myself every day. Ever since my family has left I'm having a hard time feeling
+is the biggest question I ask myself every day. Ever since my family has left I'm having a hard time feeling
 any worth or contribution to society.
 
-Sometimes it feels like even if I got a world record, made a million dollar idea come to fruition, or wrote some amazingly
+Sometimes it feels like even if I got a world record, made a million dollar idea come to fruition, or wrote some amazing
 novel programming library I'd still feel unhappy. That's why I need to start worrying about these metrics.
 
 Tracking
@@ -58,7 +58,7 @@ Tracking
     * 10 being I got a world record deadlift
 - Power
     * 1 being no physical activity
-    * 10 being I ran and worked out all the time
+    * 10 being I ran and worked out every opportunity I had
 - Nature
     * 1 being no outdoor activity
     * 10 being I spent the entire time camping and fishing
@@ -66,6 +66,18 @@ Tracking
 
 Implementation
 ========
+
+### Usage ###
+Page has 2 tabs: Output and Input
+
+**Output page**
+- A bunch of badass meters for each metric.
+- Graph view over time
+
+**Input page**
+- Coming to the input page you should see all of the daily metrics that still need entering.
+- You should setup a Google reminder at 915PM every day to fill in these metrics.
+- At the beginning of each month, monthly metrics should appear as well
 
 ### Backup ###
 - Dump database daily to eric@ckcollab.com
