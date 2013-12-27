@@ -1,6 +1,8 @@
 chin-up
 =======
-Daily I want to track:
+
+Daily tracking
+--------------
 - Happy
     * 1 being sad, 10 being happiest I've ever been
 - Motivated
@@ -21,7 +23,13 @@ Monthly I want to track:
     * 1 being no outdoor activity, 10 being I spent the entire time camping and fishing
 
 
-It seems like this can all be put into a couple basic models:
+Daily tasks
+-----------
+- Dump database to eric@ckcollab.com
+
+
+Models
+------
 Metric
 - Name (Happy)
 - Description of 1
@@ -30,3 +38,5 @@ Metric
 Measurement
 - Date/time
 - int max 10
+
+
