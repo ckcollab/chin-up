@@ -5,17 +5,27 @@ chin up
 To become the best I can be, I need motivation, I need to get my chin up.
 
 ### How do you measure? ###
-Every metric I believe that significantly effects my motivation and health I will measure on a scale frome 1 to 10.
+Every metric that I believe significantly effects my motivation and health will be measured on a scale frome 1 to 10.
+If there is something significant to note, I'll put that down as well. However, the main goal is to motivate myself through
+numbers and statistics.
 
 **1 being** the worst, least effort I could possibly put in and **10 being** the best, most effort I could possibly put in.
+
+### When will you be... done? ###
+I don't ever expect to be a 10 in all areas all the time, so there will always be room for improvment! I need/want some
+motivation in my life these days, it's strange being 25 and having your whole life ahead of you. So crippling to want to
+pursue Jiu Jitsu, Fishing, Programming, Gaming, Olympic Lifting, Powerlifting, Traveling, starting a family, etc. etc.
+
+It's extremely difficult to make a decision, especially because of my personality type always wanting to do things perfectly/the right way.
+I'm hoping this helps me pursue all of those things by simply being a healthy and happy person.
 
 Tracking
 ========
 
 ### Daily tracking ###
 - Happy
-    * 1 being sad
-    * 10 being happiest I've ever been
+    * 1 being seeing my mom with tubes coming out of her face and head
+    * 10 being happiest I've ever been, nothing feels impossible
 - Motivated
     * 1 being ultra depressed not even eating
     * 10 being I did everything I needed to and more
