@@ -1,11 +1,15 @@
 chin up
 =======
+
+### Why? ###
 **To become the best I can be, I need motivation, I need to get my chin up.**
 
 What is a 1? The worst, least effort I could possibly put in
 
 What is a 10? The best, most effort I could possibly put in
 
+Tracking
+========
 ### Daily tracking ###
 - Happy
     * 1 being sad
@@ -38,9 +42,10 @@ What is a 10? The best, most effort I could possibly put in
     * 10 being I spent the entire time camping and fishing
 
 
-### Daily tasks ###
-- Dump database to eric@ckcollab.com
-
+Implementation
+========
+### Backup ###
+- Dump database daily to eric@ckcollab.com
 
 ### Models ###
 **Metric**
