@@ -2,14 +2,18 @@ chin up
 =======
 
 ### Why? ###
-**To become the best I can be, I need motivation, I need to get my chin up.**
+To become the best I can be, I need motivation, I need to get my chin up.
 
-What is a 1? The worst, least effort I could possibly put in
+### How do you measure? ###
+Every metric I believe that significantly effects my motivation and health I will measure on a scale frome 1 to 10.
 
-What is a 10? The best, most effort I could possibly put in
+**1 being** the worst, least effort I could possibly put in
+
+**10 being** the best, most effort I could possibly put in
 
 Tracking
 ========
+
 ### Daily tracking ###
 - Happy
     * 1 being sad
@@ -44,6 +48,7 @@ Tracking
 
 Implementation
 ========
+
 ### Backup ###
 - Dump database daily to eric@ckcollab.com
 
