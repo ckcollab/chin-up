@@ -16,7 +16,8 @@ Daily tracking
     * 1 being I got into a huge argument and feel terrible
     * 10 being we made dinner together and wrote each other poetry
 
-Monthly I want to track:
+Monthly tracking
+----------------
 - Life goals
     * 1 being no progress towards goals and very depressed
     * 10 being I got a world record deadlift
@@ -35,12 +36,12 @@ Daily tasks
 
 Models
 ------
-Metric
+**Metric**
 - Name (Happy)
 - Description of 1
 - Description of 10
 
-Measurement
+**Measurement**
 - Date/time
 - int max 10
 
