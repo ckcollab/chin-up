@@ -6,8 +6,7 @@ What is a 1? The worst, least effort I could possibly put in
 
 What is a 10? The best, most effort I could possibly put in
 
-Daily tracking
---------------
+### Daily tracking ###
 - Happy
     * 1 being sad
     * 10 being happiest I've ever been
@@ -27,8 +26,7 @@ Daily tracking
     * 1 being I got into a huge argument and feel terrible
     * 10 being we made dinner together and wrote each other poetry
 
-Monthly tracking
-----------------
+### Monthly tracking ###
 - Life goals
     * 1 being no progress towards goals and very depressed
     * 10 being I got a world record deadlift
@@ -40,13 +38,11 @@ Monthly tracking
     * 10 being I spent the entire time camping and fishing
 
 
-Daily tasks
------------
+### Daily tasks ###
 - Dump database to eric@ckcollab.com
 
 
-Models
-------
+### Models ###
 **Metric**
 - Name (Happy)
 - Description of 1
