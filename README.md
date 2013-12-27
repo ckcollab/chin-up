@@ -1,3 +1,10 @@
+chin up
+=======
+**To become the best I can be, I need motivation, I need to get my chin up.**
+
+What is a 1? The worst, least effort I could possibly put in
+What is a 10? The best, most effort I could possibly put in
+
 Daily tracking
 --------------
 - Happy
@@ -6,6 +13,9 @@ Daily tracking
 - Motivated
     * 1 being ultra depressed not even eating
     * 10 being I did everything I needed to and more
+- Flexibility
+    * 1 being no stretching in chair all day no walking around
+    * 10 being I did
 - Strength
     * 1 being I feel as soft as an 8 year old girl
     * 10 being I squatted and deadlifted the day before--now I can't move
@@ -43,6 +53,7 @@ Models
 
 **Measurement**
 - Date/time
-- int max 10
+- int 1 through 10
+- Notes for this measurement if applicable
 
 
