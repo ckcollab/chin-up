@@ -3,6 +3,7 @@ chin up
 **To become the best I can be, I need motivation, I need to get my chin up.**
 
 What is a 1? The worst, least effort I could possibly put in
+
 What is a 10? The best, most effort I could possibly put in
 
 Daily tracking
