@@ -1,0 +1,13 @@
+.metric_input {
+  position: relative;
+  margin-bottom: 20px;
+}
+.metric_input .min_label,
+.metric_input .max_label {
+  position: absolute;
+  top: 0;
+}
+.metric_input input {
+  margin: 0 20px;
+  width: 65%;
+}

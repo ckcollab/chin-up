@@ -1,3 +1,5 @@
+import datetime
+
 from django.shortcuts import render
 
 from .models import Metric, MetricRecord
@@ -13,4 +15,8 @@ def home(request):
 
 
 def input(request):
-    return render(request, 'chinup/input.html', {})
+    return render(request, 'chinup/input.html', {
+        'daily_metrics': Metric.objects.filter(daily=True),
+        'monthly_metrics': Metric.objects.filter(monthly=True),
+        'day_of_month': datetime.date.today().day
+    })
