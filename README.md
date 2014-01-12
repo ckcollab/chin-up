@@ -12,7 +12,7 @@ numbers and statistics.
 **1 being** the worst, least effort I could possibly put in and **10 being** the best, most effort I could possibly put in.
 
 ### When will you be... done? ###
-I don't ever expect to be a 10 in all areas all the time, so there will always be room for improvment! I need/want some
+I don't ever expect to be a 10 in all areas all the time, so there will always be room for improvement! I need/want some
 motivation in my life these days. It's strange being 25 and having your whole life ahead of you. So crippling to want to
 pursue Jiu Jitsu, Fishing, Programming, Gaming, Olympic Lifting, Powerlifting, Traveling, starting a family, etc. etc.
 
@@ -41,7 +41,7 @@ Tracking
     * 10 being I did everything I needed to and more
 - Flexibility
     * 1 being no stretching in chair all day no walking around
-    * 10 being I did
+    * 10 being I did every stretch possible and did the splits
 - Strength
     * 1 being I feel as soft as an 8 year old girl
     * 10 being I squatted and deadlifted the day before--now I can't move
@@ -72,7 +72,7 @@ Page has 2 tabs: Output and Input
 
 **Output page**
 - A bunch of badass meters for each metric.
-- Graph view over time
+- Graph view of the last 30 days
 - A list of notes for that current month (useful for making monthly evaluations like how many times did I go in nature)
 
 **Input page**

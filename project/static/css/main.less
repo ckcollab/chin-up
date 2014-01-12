@@ -1,47 +1,55 @@
 @import "lesshat-prefixed.less";
 
+body {
+    padding-top: 70px;
+}
 
-.meter {
-    position: relative;
-    width: 150px;
-    height: 150px;
+.metric {
+    text-align: center;
 
-    .dial {
-        position: absolute;
-        left: 50%;
-        bottom: 0;
-        background-color: #333;
-        width: 75px;
-        height: 1px;
+    .meter {
+        position: relative;
+        width: 150px;
+        height: 75px;
+        margin: 20px auto;
 
-        .lh-transform-origin(left bottom);
+        .dial {
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            background-color: #333;
+            width: 75px;
+            height: 1px;
 
-        &.dial-start {
-            .lh-rotate(180);
+            .lh-transform-origin(left bottom);
+
+            &.dial-start {
+                .lh-rotate(180);
+            }
+
+            &.dial-mid {
+                .lh-rotate(270);
+            }
+
+            &.dial-end {
+                .lh-rotate(360);
+            }
         }
 
-        &.dial-mid {
-            .lh-rotate(270);
+        &:before {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            content: '';
+            background: #333;
+
+            margin: 0 0 -4px -4px;
+
+            width: 8px;
+            height: 8px;
+
+            .lh-border-radius(50%);
         }
-
-        &.dial-end {
-            .lh-rotate(360);
-        }
-    }
-
-    &:before {
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        content: '';
-        background: #333;
-
-        margin: 0 0 -4px -4px;
-
-        width: 8px;
-        height: 8px;
-
-        .lh-border-radius(50%);
     }
 }
 

@@ -1,9 +1,16 @@
-.meter {
+body {
+  padding-top: 70px;
+}
+.metric {
+  text-align: center;
+}
+.metric .meter {
   position: relative;
   width: 150px;
-  height: 150px;
+  height: 75px;
+  margin: 20px auto;
 }
-.meter .dial {
+.metric .meter .dial {
   position: absolute;
   left: 50%;
   bottom: 0;
@@ -16,28 +23,28 @@
   -ms-transform-origin: left bottom;
   transform-origin: left bottom;
 }
-.meter .dial.dial-start {
+.metric .meter .dial.dial-start {
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
   -o-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
 }
-.meter .dial.dial-mid {
+.metric .meter .dial.dial-mid {
   -webkit-transform: rotate(270deg);
   -moz-transform: rotate(270deg);
   -o-transform: rotate(270deg);
   -ms-transform: rotate(270deg);
   transform: rotate(270deg);
 }
-.meter .dial.dial-end {
+.metric .meter .dial.dial-end {
   -webkit-transform: rotate(360deg);
   -moz-transform: rotate(360deg);
   -o-transform: rotate(360deg);
   -ms-transform: rotate(360deg);
   transform: rotate(360deg);
 }
-.meter:before {
+.metric .meter:before {
   position: absolute;
   bottom: 0;
   left: 50%;

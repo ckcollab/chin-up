@@ -83,10 +83,10 @@ MIDDLEWARE_CLASSES = (
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
-ROOT_URLCONF = 'chin-up.urls'
+ROOT_URLCONF = 'chinup.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'chin-up.wsgi.application'
+WSGI_APPLICATION = 'chinup.wsgi.application'
 
 BASE_AND_LIBRARY_APPS = (
     'django.contrib.admin',
@@ -103,7 +103,7 @@ BASE_AND_LIBRARY_APPS = (
 )
 
 CHIN_UP_APPS = (
-    'chin-up',
+    'chinup',
 )
 
 INSTALLED_APPS = BASE_AND_LIBRARY_APPS + CHIN_UP_APPS
