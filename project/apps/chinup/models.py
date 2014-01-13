@@ -20,6 +20,7 @@ class Metric(models.Model):
 
 
 class MetricRecord(models.Model):
+    metric = models.ForeignKey(Metric, unique_for_date="datetime")
     datetime = models.DateTimeField()
     measurement = models.IntegerField()
     notes = models.TextField()

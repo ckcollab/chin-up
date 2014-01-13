@@ -1,7 +1,7 @@
 {% load static from staticfiles %}
 
 <!DOCTYPE html>
-<html>
+<html ng-app>
 <head>
     <title></title>
 
@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
     <link rel="stylesheet" type="text/css" href="{% static "css/input.css" %}">
 </head>
-<body>
+<body ng-controller="ChinupController">
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-mobile-menu">
@@ -35,5 +35,8 @@
 
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script>
+
+    <script type="text/javascript" src="{% static "js/chinup.js" %}"></script>
 </body>
 </html>

@@ -5,9 +5,10 @@
         <div class="row">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h1>Daily</h1>
+                    <h1>Daily <small>30 day avg</small></h1>
+
                 </div>
-            
+
                 <div class="panel-body">
                     {% for metric in daily_metrics %}
                         <div class="col-xs-6 col-sm-4 metric">
@@ -22,7 +23,7 @@
 
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h1>Monthly</h1>
+                    <h1>Monthly <small>4 mon avg</small></h1>
                 </div>
 
                 <div class="panel-body">
