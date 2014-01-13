@@ -42,33 +42,34 @@
                 </div>
 
                 <div class="panel-body">
-                    <ng-form>
-                        {% for metric in daily_metrics %}
+                    <ng-form name="metric_form">
+                        {% csrf_token %}
+                        {% for record in daily_metrics %}
                             <div class="col-lg-6">
                                 <h3>
                                     <span
                                             class="label label-default"
-                                            ng-bind="metrics[{{ metric.pk }}]"
+                                            ng-bind="metrics[{{ record.pk }}]"
                                             ng-class="{
-                                                'label-danger': metrics[{{ metric.pk }}] <= 2,
-                                                'label-warning': metrics[{{ metric.pk }}] <= 4,
+                                                'label-danger': metrics[{{ record.pk }}] <= 2,
+                                                'label-warning': metrics[{{ record.pk }}] <= 4,
 
-                                                'label-default': metrics[{{ metric.pk }}] == 5,
-                                                'label-info': metrics[{{ metric.pk }}] >= 6 && metrics[{{ metric.pk }}] < 9,
-                                                'label-success': metrics[{{ metric.pk }}] >= 9}
+                                                'label-default': metrics[{{ record.pk }}] == 5,
+                                                'label-info': metrics[{{ record.pk }}] >= 6 && metrics[{{ record.pk }}] < 9,
+                                                'label-success': metrics[{{ record.pk }}] >= 9}
                                             "
                                     >
                                         5
                                     </span>
-                                    {{ metric.name }}
+                                    {{ record.metric.name }}
                                 </h3>
-                                <small>{{ metric.description_worst }}</small><br>
-                                <small>{{ metric.description_best }}</small>
+                                <small>{{ record.metric.description_worst }}</small><br>
+                                <small>{{ record.metric.description_best }}</small>
 
                                 <div class="metric_input">
-                                    <span class="min_label">1</span>
-                                    <input id="asdf" type="range" name="metric_{{ metric.pk }}" ng-model="metrics[{{ metric.pk }}]" ng-init="metrics[{{ metric.pk }}] = 5" min="1" value="5" max="10">
-                                    <span class="max_label">10</span>
+
+                                    <input id="asdf" type="range" name="metric_{{ record.pk }}" ng-model="metrics[{{ record.pk }}]" ng-init="metrics['{{ record.pk }}'] = {{ record.measurement }}" min="1" max="10">
+
                                 </div>
                             </div>
                         {% endfor %}
@@ -78,7 +79,7 @@
         </div>
 
         <div class="row">
-            <div class="btn btn-success btn-lg btn-block">Save</div>
+            <div class="btn btn-lg btn-block btn-success" ng-click="save_metrics()" ng-bind="save_text" ng-class="{'btn-success': save_text != 'Error', 'btn-danger': save_text == 'Error'}">Save</div>
         </div>
     </div>
 {% endblock %}

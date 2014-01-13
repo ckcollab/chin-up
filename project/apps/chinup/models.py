@@ -21,6 +21,9 @@ class Metric(models.Model):
 
 class MetricRecord(models.Model):
     metric = models.ForeignKey(Metric, unique_for_date="datetime")
-    datetime = models.DateTimeField()
-    measurement = models.IntegerField()
+    datetime = models.DateField()
+    measurement = models.IntegerField(default=5, blank=True)
     notes = models.TextField()
+
+    def __unicode__(self):
+        return "Record for %s %s on %s" % (self.measurement, self.metric.name, self.datetime)
