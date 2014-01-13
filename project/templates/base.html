@@ -35,8 +35,32 @@
 
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/gauge.min.js" %}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script>
 
     <script type="text/javascript" src="{% static "js/chinup.js" %}"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.meter').each(function() {
+                var gauge = new Gauge(this).setOptions({
+                    colorStart: '#ffffff',   // Colors
+                    colorStop: '#8FC0DA',    // just experiment with them
+                    strokeColor: '#E0E0E0',  // to see which ones work best for you
+                    generateGradient: false,
+                    percentColors: [
+                        [ 0.0, "#D9534F" ],
+                        [ 0.40, "#F0AD4E" ],
+                        //[ 0.41, "#ccc" ],
+                        [ 0.5, "#5BC0DE" ],
+                        [ 0.8, "#5CB85C" ],
+                        [ 1.0, "#5CB85C" ]
+                    ]
+                });
+                gauge.maxValue = 10;
+                gauge.set(parseFloat($(this).attr('data-value')));
+            });
+        });
+    </script>
 </body>
 </html>

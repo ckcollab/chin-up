@@ -3,6 +3,48 @@ body {
 }
 .metric {
   text-align: center;
+  /*
+    .meter {
+        position: relative;
+        width: 150px;
+        height: 75px;
+        margin: 20px auto;
+
+        .dial {
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            width: 75px;
+            height: 1px;
+
+            .lh-transform-origin(left bottom);
+
+            &.dial-position-1 { .lh-rotate(180); }
+            &.dial-position-2 { .lh-rotate(200); }
+            &.dial-position-3 { .lh-rotate(220); }
+            &.dial-position-4 { .lh-rotate(240); }
+            &.dial-position-5 { .lh-rotate(260); }
+            &.dial-position-6 { .lh-rotate(280); }
+            &.dial-position-7 { .lh-rotate(300); }
+            &.dial-position-8 { .lh-rotate(320); }
+            &.dial-position-9 { .lh-rotate(340); }
+            &.dial-position-10 { .lh-rotate(360); }
+        }
+
+        .dot {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+
+            margin: 0 0 -4px -4px;
+
+            width: 8px;
+            height: 8px;
+
+            .lh-border-radius(50%);
+        }
+    }*/
+
 }
 .metric .awful-shape {
   background-color: #999999;
@@ -12,106 +54,4 @@ body {
 }
 .metric .ok-shape {
   background-color: #999999;
-}
-.metric .meter {
-  position: relative;
-  width: 150px;
-  height: 75px;
-  margin: 20px auto;
-}
-.metric .meter .dial {
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  width: 75px;
-  height: 1px;
-  -webkit-transform-origin: left bottom;
-  -moz-transform-origin: left bottom;
-  -o-transform-origin: left bottom;
-  -ms-transform-origin: left bottom;
-  transform-origin: left bottom;
-}
-.metric .meter .dial.dial-position-1 {
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
-}
-.metric .meter .dial.dial-position-2 {
-  -webkit-transform: rotate(200deg);
-  -moz-transform: rotate(200deg);
-  -o-transform: rotate(200deg);
-  -ms-transform: rotate(200deg);
-  transform: rotate(200deg);
-}
-.metric .meter .dial.dial-position-3 {
-  -webkit-transform: rotate(220deg);
-  -moz-transform: rotate(220deg);
-  -o-transform: rotate(220deg);
-  -ms-transform: rotate(220deg);
-  transform: rotate(220deg);
-}
-.metric .meter .dial.dial-position-4 {
-  -webkit-transform: rotate(240deg);
-  -moz-transform: rotate(240deg);
-  -o-transform: rotate(240deg);
-  -ms-transform: rotate(240deg);
-  transform: rotate(240deg);
-}
-.metric .meter .dial.dial-position-5 {
-  -webkit-transform: rotate(260deg);
-  -moz-transform: rotate(260deg);
-  -o-transform: rotate(260deg);
-  -ms-transform: rotate(260deg);
-  transform: rotate(260deg);
-}
-.metric .meter .dial.dial-position-6 {
-  -webkit-transform: rotate(280deg);
-  -moz-transform: rotate(280deg);
-  -o-transform: rotate(280deg);
-  -ms-transform: rotate(280deg);
-  transform: rotate(280deg);
-}
-.metric .meter .dial.dial-position-7 {
-  -webkit-transform: rotate(300deg);
-  -moz-transform: rotate(300deg);
-  -o-transform: rotate(300deg);
-  -ms-transform: rotate(300deg);
-  transform: rotate(300deg);
-}
-.metric .meter .dial.dial-position-8 {
-  -webkit-transform: rotate(320deg);
-  -moz-transform: rotate(320deg);
-  -o-transform: rotate(320deg);
-  -ms-transform: rotate(320deg);
-  transform: rotate(320deg);
-}
-.metric .meter .dial.dial-position-9 {
-  -webkit-transform: rotate(340deg);
-  -moz-transform: rotate(340deg);
-  -o-transform: rotate(340deg);
-  -ms-transform: rotate(340deg);
-  transform: rotate(340deg);
-}
-.metric .meter .dial.dial-position-10 {
-  -webkit-transform: rotate(360deg);
-  -moz-transform: rotate(360deg);
-  -o-transform: rotate(360deg);
-  -ms-transform: rotate(360deg);
-  transform: rotate(360deg);
-}
-.metric .meter .dot {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  margin: 0 0 -4px -4px;
-  width: 8px;
-  height: 8px;
-  -webkit-border-radius: 50%;
-  -webkit-background-clip: padding-box;
-  -moz-border-radius: 50%;
-  -moz-background-clip: padding;
-  border-radius: 50%;
-  background-clip: padding-box;
 }

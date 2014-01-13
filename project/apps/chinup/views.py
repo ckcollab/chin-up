@@ -28,14 +28,16 @@ def home(request):
 
 
 def input(request):
-    # get_or_create each metric + day
+    day_of_month = datetime.date.today().day
     metrics = Metric.objects.all()
+
+    if day_of_month != 1:
+        # First day of month let's do monthly as well, otherwise filter them out
+        metrics = Metric.objects.filter(daily=True, monthly=False)
 
     metric_records = [MetricRecord.objects.get_or_create(datetime=datetime.datetime.today(), metric=m)[0] for m in metrics]
     metric_records_pks = [m.pk for m in metric_records]
-    # if form data
-    #   process form
-    #   save data to metrics
+
     if request.method == "POST":
         data = json.loads(request.POST.items()[0][0])
 
@@ -52,6 +54,6 @@ def input(request):
     return render(request, 'chinup/input.html', {
         'daily_metrics': [m for m in metric_records if m.metric.daily],
         'monthly_metrics': [m for m in metric_records if m.metric.monthly],
-        'day_of_month': datetime.date.today().day,
+        'day_of_month': day_of_month,
         'date': datetime.date.today(),
     })
