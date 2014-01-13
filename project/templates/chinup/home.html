@@ -10,12 +10,35 @@
                 </div>
 
                 <div class="panel-body">
-                    {% for metric in daily_metrics %}
+                    {% for avg, metric in daily_metrics %}
                         <div class="col-xs-6 col-sm-4 metric">
                             <div class="meter">
-                                <div class="dial dial-mid"></div>
+                                <div class="dial dial-position-{{ avg|floatformat:"0" }}" ng-class="{
+                                'label-danger': {{ avg|floatformat:"0" }} <= 2,
+                                'label-warning': {{ avg|floatformat:"0" }} <= 4,
+
+                                'label-default': {{ avg|floatformat:"0" }} == 5,
+                                'label-info': {{ avg|floatformat:"0" }} >= 6 && {{ avg|floatformat:"0" }} < 9,
+                                'label-success': {{ avg|floatformat:"0" }} >= 9
+                                }"></div>
+                                <div class="dot" ng-class="{
+                                'label-danger': {{ avg|floatformat:"0" }} <= 2,
+                                'label-warning': {{ avg|floatformat:"0" }} <= 4,
+
+                                'label-default': {{ avg|floatformat:"0" }} == 5,
+                                'label-info': {{ avg|floatformat:"0" }} >= 6 && {{ avg|floatformat:"0" }} < 9,
+                                'label-success': {{ avg|floatformat:"0" }} >= 9
+                                }"
+                                        ></div>
                             </div>
-                            <p>{{ metric.name }}</p>
+                            <p ng-class="{
+                                'alert-danger': {{ avg|floatformat:"0" }} <= 2,
+                                'alert-warning': {{ avg|floatformat:"0" }} <= 4,
+
+                                'alert-default': {{ avg|floatformat:"0" }} == 5,
+                                'alert-info': {{ avg|floatformat:"0" }} >= 6 && {{ avg|floatformat:"0" }} < 9,
+                                'alert-success': {{ avg|floatformat:"0" }} >= 9
+                                }">{{ metric.name }}</p>
                         </div>
                     {% endfor %}
                 </div>
@@ -23,16 +46,39 @@
 
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h1>Monthly <small>4 mon avg</small></h1>
+                    <h1>Monthly <small>120 day avg</small></h1>
                 </div>
 
                 <div class="panel-body">
-                    {% for metric in monthly_metrics %}
+                    {% for avg, metric in monthly_metrics %}
                         <div class="col-xs-6 col-sm-4 metric">
                             <div class="meter">
-                                <div class="dial dial-start"></div>
+                                <div class="dial dial-position-{{ avg|floatformat:"0" }}" ng-class="{
+                                                'label-danger': {{ avg|floatformat:"0" }} <= 2,
+                                                'label-warning': {{ avg|floatformat:"0" }} <= 4,
+
+                                                'label-default': {{ avg|floatformat:"0" }} == 5,
+                                                'label-info': {{ avg|floatformat:"0" }} >= 6 && {{ avg|floatformat:"0" }} < 9,
+                                                'label-success': {{ avg|floatformat:"0" }} >= 9
+                                                }"></div>
+                                <div class="dot" ng-class="{
+                                                'label-danger': {{ avg|floatformat:"0" }} <= 2,
+                                                'label-warning': {{ avg|floatformat:"0" }} <= 4,
+
+                                                'label-default': {{ avg|floatformat:"0" }} == 5,
+                                                'label-info': {{ avg|floatformat:"0" }} >= 6 && {{ avg|floatformat:"0" }} < 9,
+                                                'label-success': {{ avg|floatformat:"0" }} >= 9
+                                                }"
+                                        ></div>
                             </div>
-                            <p>{{ metric.name }}</p>
+                            <p ng-class="{
+                                                'alert-danger': {{ avg|floatformat:"0" }} <= 2,
+                                                'alert-warning': {{ avg|floatformat:"0" }} <= 4,
+
+                                                'alert-default': {{ avg|floatformat:"0" }} == 5,
+                                                'alert-info': {{ avg|floatformat:"0" }} >= 6 && {{ avg|floatformat:"0" }} < 9,
+                                                'alert-success': {{ avg|floatformat:"0" }} >= 9
+                                                }">{{ metric.name }}</p>
                         </div>
                     {% endfor %}
                 </div>

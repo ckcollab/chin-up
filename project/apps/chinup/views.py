@@ -1,17 +1,29 @@
 import datetime
 import json
 
+from datetime import timedelta
+
+from django.db.models import Avg
 from django.http import HttpResponse
 from django.shortcuts import render
 
 from .models import Metric, MetricRecord
 
 
+def append_avg_measurement(metric_list, day_span=30):
+    combined = []
+
+    for m in metric_list:
+        avg = MetricRecord.objects.filter(metric=m, datetime__gt=datetime.datetime.today() - timedelta(days=day_span)).aggregate(Avg('measurement'))
+        combined.append((avg['measurement__avg'], m))
+
+    return combined
+
 def home(request):
 
     return render(request, 'chinup/home.html', {
-        'daily_metrics': Metric.objects.filter(daily=True),
-        'monthly_metrics': Metric.objects.filter(monthly=True),
+        'daily_metrics': append_avg_measurement(Metric.objects.filter(daily=True)),
+        'monthly_metrics': append_avg_measurement(Metric.objects.filter(monthly=True), day_span=120),
     })
 
 

@@ -4,6 +4,15 @@ body {
 .metric {
   text-align: center;
 }
+.metric .awful-shape {
+  background-color: #999999;
+}
+.metric .bad-shape {
+  background-color: #999999;
+}
+.metric .ok-shape {
+  background-color: #999999;
+}
 .metric .meter {
   position: relative;
   width: 150px;
@@ -14,7 +23,6 @@ body {
   position: absolute;
   left: 50%;
   bottom: 0;
-  background-color: #333;
   width: 75px;
   height: 1px;
   -webkit-transform-origin: left bottom;
@@ -23,33 +31,80 @@ body {
   -ms-transform-origin: left bottom;
   transform-origin: left bottom;
 }
-.metric .meter .dial.dial-start {
+.metric .meter .dial.dial-position-1 {
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
   -o-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
 }
-.metric .meter .dial.dial-mid {
-  -webkit-transform: rotate(270deg);
-  -moz-transform: rotate(270deg);
-  -o-transform: rotate(270deg);
-  -ms-transform: rotate(270deg);
-  transform: rotate(270deg);
+.metric .meter .dial.dial-position-2 {
+  -webkit-transform: rotate(200deg);
+  -moz-transform: rotate(200deg);
+  -o-transform: rotate(200deg);
+  -ms-transform: rotate(200deg);
+  transform: rotate(200deg);
 }
-.metric .meter .dial.dial-end {
+.metric .meter .dial.dial-position-3 {
+  -webkit-transform: rotate(220deg);
+  -moz-transform: rotate(220deg);
+  -o-transform: rotate(220deg);
+  -ms-transform: rotate(220deg);
+  transform: rotate(220deg);
+}
+.metric .meter .dial.dial-position-4 {
+  -webkit-transform: rotate(240deg);
+  -moz-transform: rotate(240deg);
+  -o-transform: rotate(240deg);
+  -ms-transform: rotate(240deg);
+  transform: rotate(240deg);
+}
+.metric .meter .dial.dial-position-5 {
+  -webkit-transform: rotate(260deg);
+  -moz-transform: rotate(260deg);
+  -o-transform: rotate(260deg);
+  -ms-transform: rotate(260deg);
+  transform: rotate(260deg);
+}
+.metric .meter .dial.dial-position-6 {
+  -webkit-transform: rotate(280deg);
+  -moz-transform: rotate(280deg);
+  -o-transform: rotate(280deg);
+  -ms-transform: rotate(280deg);
+  transform: rotate(280deg);
+}
+.metric .meter .dial.dial-position-7 {
+  -webkit-transform: rotate(300deg);
+  -moz-transform: rotate(300deg);
+  -o-transform: rotate(300deg);
+  -ms-transform: rotate(300deg);
+  transform: rotate(300deg);
+}
+.metric .meter .dial.dial-position-8 {
+  -webkit-transform: rotate(320deg);
+  -moz-transform: rotate(320deg);
+  -o-transform: rotate(320deg);
+  -ms-transform: rotate(320deg);
+  transform: rotate(320deg);
+}
+.metric .meter .dial.dial-position-9 {
+  -webkit-transform: rotate(340deg);
+  -moz-transform: rotate(340deg);
+  -o-transform: rotate(340deg);
+  -ms-transform: rotate(340deg);
+  transform: rotate(340deg);
+}
+.metric .meter .dial.dial-position-10 {
   -webkit-transform: rotate(360deg);
   -moz-transform: rotate(360deg);
   -o-transform: rotate(360deg);
   -ms-transform: rotate(360deg);
   transform: rotate(360deg);
 }
-.metric .meter:before {
+.metric .meter .dot {
   position: absolute;
   bottom: 0;
   left: 50%;
-  content: '';
-  background: #333;
   margin: 0 0 -4px -4px;
   width: 8px;
   height: 8px;

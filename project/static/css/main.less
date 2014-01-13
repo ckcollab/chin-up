@@ -7,6 +7,10 @@ body {
 .metric {
     text-align: center;
 
+    .awful-shape { background-color: rgb(153, 153, 153); }
+    .bad-shape { background-color: rgb(153, 153, 153); }
+    .ok-shape { background-color: rgb(153, 153, 153); }
+
     .meter {
         position: relative;
         width: 150px;
@@ -17,31 +21,27 @@ body {
             position: absolute;
             left: 50%;
             bottom: 0;
-            background-color: #333;
             width: 75px;
             height: 1px;
 
             .lh-transform-origin(left bottom);
 
-            &.dial-start {
-                .lh-rotate(180);
-            }
-
-            &.dial-mid {
-                .lh-rotate(270);
-            }
-
-            &.dial-end {
-                .lh-rotate(360);
-            }
+            &.dial-position-1 { .lh-rotate(180); }
+            &.dial-position-2 { .lh-rotate(200); }
+            &.dial-position-3 { .lh-rotate(220); }
+            &.dial-position-4 { .lh-rotate(240); }
+            &.dial-position-5 { .lh-rotate(260); }
+            &.dial-position-6 { .lh-rotate(280); }
+            &.dial-position-7 { .lh-rotate(300); }
+            &.dial-position-8 { .lh-rotate(320); }
+            &.dial-position-9 { .lh-rotate(340); }
+            &.dial-position-10 { .lh-rotate(360); }
         }
 
-        &:before {
+        .dot {
             position: absolute;
             bottom: 0;
             left: 50%;
-            content: '';
-            background: #333;
 
             margin: 0 0 -4px -4px;
 
