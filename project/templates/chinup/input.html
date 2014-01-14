@@ -10,26 +10,35 @@
                     </div>
 
                     <div class="panel-body">
-                        <form>
-                            {% for metric in monthly_metrics %}
+                        <ng-form name="metric_form">
+                            {% csrf_token %}
+                            {% for record in monthly_metrics %}
                                 <div class="col-lg-6">
-                                    <h3>{{ metric.name }}</h3>
-
-                                    <p>
-                                        <small>{{ metric.description_worst }}</small>
-                                    </p>
-                                    <p>
-                                        <small>{{ metric.description_best }}</small>
-                                    </p>
+                                    <h3>
+                                        <span
+                                                class="label"
+                                                ng-bind="metrics[{{ record.pk }}]"
+                                                ng-style="{'background-color': convert_measurement_to_hsl(metrics[{{ record.pk }}])}"
+                                                >
+                                            5
+                                        </span>
+                                        {{ record.metric.name }}
+                                    </h3>
+                                    <small>{{ record.metric.description_worst }}</small>
+                                    <br>
+                                    <small>{{ record.metric.description_best }}</small>
 
                                     <div class="metric_input">
-                                        <span class="min_label">1</span>
-                                        <input type="range" name="metric_{{ metric.pk }}" min="1" max="10">
-                                        <span class="max_label">10</span>
+
+                                        <input id="asdf" type="range" name="metric_{{ record.pk }}"
+                                               ng-model="metrics[{{ record.pk }}]" ng-change="set_background_color()"
+                                               ng-init="metrics['{{ record.pk }}'] = {{ record.measurement }}" min="1"
+                                               max="10">
+
                                     </div>
                                 </div>
                             {% endfor %}
-                        </form>
+                        </ng-form>
                     </div>
                 </div>
             </div>
@@ -48,16 +57,9 @@
                             <div class="col-lg-6">
                                 <h3>
                                     <span
-                                            class="label label-default"
+                                            class="label"
                                             ng-bind="metrics[{{ record.pk }}]"
-                                            ng-class="{
-                                                'label-danger': metrics[{{ record.pk }}] <= 2,
-                                                'label-warning': metrics[{{ record.pk }}] <= 4,
-
-                                                'label-default': metrics[{{ record.pk }}] == 5,
-                                                'label-info': metrics[{{ record.pk }}] >= 6 && metrics[{{ record.pk }}] < 9,
-                                                'label-success': metrics[{{ record.pk }}] >= 9
-                                            }"
+                                            ng-style="{'background-color': convert_measurement_to_hsl(metrics[{{ record.pk }}])}"
                                     >
                                         5
                                     </span>
@@ -68,7 +70,7 @@
 
                                 <div class="metric_input">
 
-                                    <input id="asdf" type="range" name="metric_{{ record.pk }}" ng-model="metrics[{{ record.pk }}]" ng-init="metrics['{{ record.pk }}'] = {{ record.measurement }}" min="1" max="10">
+                                    <input id="asdf" type="range" name="metric_{{ record.pk }}" ng-model="metrics[{{ record.pk }}]" ng-change="set_background_color()" ng-init="metrics['{{ record.pk }}'] = {{ record.measurement }}" min="1" max="10">
 
                                 </div>
                             </div>

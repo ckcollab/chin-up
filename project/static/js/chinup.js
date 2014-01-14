@@ -31,4 +31,19 @@ function ChinupController($scope, $http) {
                 $scope.save_text = "Error";
             });
     };
+
+    $scope.convert_measurement_to_hsl = function(value){
+        var hue = ((value * 12) - 12);
+        var sat = '50%';
+        var l = '65%';
+
+        // Skip gold color, make it gray
+        if(value == 5) {
+            sat = '0%';
+        } else if (value > 5) {
+            hue += 24;
+        }
+
+        return 'hsl(' + hue + ', ' + sat + ', ' + l + ')';
+    };
 }

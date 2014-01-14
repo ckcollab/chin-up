@@ -12,11 +12,8 @@
                 <div class="panel-body">
                     {% for avg, metric in daily_metrics %}
                         <div class="col-xs-6 col-sm-4 metric">
-                            <canvas class="meter" data-value="{{ avg }}">
-                                <!--<div class="dial dial-position-{{ avg|floatformat:"0" }}"></div>
-                                <div class="dot"></div>-->
+                            <canvas class="meter" data-value="{{ avg }}"></canvas>
 
-                            </canvas>
                             <p>{{ metric.name }}</p>
                         </div>
                     {% endfor %}
@@ -31,11 +28,8 @@
                 <div class="panel-body">
                     {% for avg, metric in monthly_metrics %}
                         <div class="col-xs-6 col-sm-4 metric">
-                            <canvas class="meter" data-value="{{ avg }}">
-                                <!--<div class="dial dial-position-{{ avg|floatformat:"0" }}"></div>
-                                                        <div class="dot"></div>-->
+                            <canvas class="meter" data-value="{{ avg }}"></canvas>
 
-                            </canvas>
                             <p>{{ metric.name }}</p>
                         </div>
                     {% endfor %}
