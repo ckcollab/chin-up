@@ -2,6 +2,7 @@ import datetime
 import json
 
 from datetime import timedelta
+from dateutil import parser
 
 from django.db.models import Avg
 from django.http import HttpResponse
@@ -14,7 +15,12 @@ def append_avg_measurement(metric_list, day_span=30):
     combined = []
 
     for m in metric_list:
-        avg = MetricRecord.objects.filter(metric=m, datetime__gt=datetime.datetime.today() - timedelta(days=day_span)).aggregate(Avg('measurement'))
+        avg = MetricRecord.objects.filter(
+            metric=m,
+            datetime__gt=datetime.datetime.today() - timedelta(days=day_span),
+            datetime__lt=datetime.datetime.today()
+        ).aggregate(Avg('measurement'))
+
         combined.append((avg['measurement__avg'], m))
 
     return combined
@@ -28,14 +34,22 @@ def home(request):
 
 
 def input(request):
-    day_of_month = datetime.date.today().day
+    date_string = request.GET.get('date', None)
+
+    if date_string is not None:
+        date = parser.parse(date_string)
+    else:
+        date = datetime.date.today()
+
+    day_of_month = date.day
+
     metrics = Metric.objects.all()
 
     if day_of_month != 1:
         # First day of month let's do monthly as well, otherwise filter them out
         metrics = Metric.objects.filter(daily=True, monthly=False)
 
-    metric_records = [MetricRecord.objects.get_or_create(datetime=datetime.datetime.today(), metric=m)[0] for m in metrics]
+    metric_records = [MetricRecord.objects.get_or_create(datetime=date, metric=m)[0] for m in metrics]
     metric_records_pks = [m.pk for m in metric_records]
 
     if request.method == "POST":
@@ -55,5 +69,7 @@ def input(request):
         'daily_metrics': [m for m in metric_records if m.metric.daily],
         'monthly_metrics': [m for m in metric_records if m.metric.monthly],
         'day_of_month': day_of_month,
-        'date': datetime.date.today(),
+        'date': date,
+        'yesterday_link': date - timedelta(days=1),
+        'tomorrow_link': date + timedelta(days=1)
     })

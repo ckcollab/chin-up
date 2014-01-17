@@ -2,52 +2,16 @@
 
 {% block content %}
     <div class="container">
-        {% if day_of_month == 1 %}
-            <div class="row">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h1>Monthly Metrics</h1>
-                    </div>
-
-                    <div class="panel-body">
-                        <ng-form name="metric_form">
-                            {% csrf_token %}
-                            {% for record in monthly_metrics %}
-                                <div class="col-lg-6">
-                                    <h3>
-                                        <span
-                                                class="label"
-                                                ng-bind="metrics[{{ record.pk }}]"
-                                                ng-style="{'background-color': convert_measurement_to_hsl(metrics[{{ record.pk }}])}"
-                                                >
-                                            5
-                                        </span>
-                                        {{ record.metric.name }}
-                                    </h3>
-                                    <small>{{ record.metric.description_worst }}</small>
-                                    <br>
-                                    <small>{{ record.metric.description_best }}</small>
-
-                                    <div class="metric_input">
-
-                                        <input id="asdf" type="range" name="metric_{{ record.pk }}"
-                                               ng-model="metrics[{{ record.pk }}]" ng-change="set_background_color()"
-                                               ng-init="metrics['{{ record.pk }}'] = {{ record.measurement }}" min="1"
-                                               max="10">
-
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        </ng-form>
-                    </div>
-                </div>
-            </div>
-        {% endif %}
-
         <div class="row">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h1>Daily Metrics <small>for {{ date }}</small></h1>
+                    <h1>Daily Metrics <small>for {{ date|date:"M d" }}</small></h1>
+                    <a href="/input/?date={{ yesterday_link|date:"d M Y" }}">
+                        <small>previous day</small>
+                    </a> -
+                    <a href="/input/?date={{ tomorrow_link|date:"d M Y" }}">
+                        <small>next day</small>
+                    </a>
                 </div>
 
                 <div class="panel-body">
@@ -69,9 +33,7 @@
                                 <small>{{ record.metric.description_best }}</small>
 
                                 <div class="metric_input">
-
-                                    <input id="asdf" type="range" name="metric_{{ record.pk }}" ng-model="metrics[{{ record.pk }}]" ng-change="set_background_color()" ng-init="metrics['{{ record.pk }}'] = {{ record.measurement }}" min="1" max="10">
-
+                                    <input type="range" name="metric_{{ record.pk }}" ng-model="metrics[{{ record.pk }}]" ng-init="metrics['{{ record.pk }}'] = {{ record.measurement }}" min="1" max="10">
                                 </div>
                             </div>
                         {% endfor %}
@@ -79,6 +41,46 @@
                 </div>
             </div>
         </div>
+
+        {% if day_of_month == 1 %}
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h1>Monthly Metrics</h1>
+                    </div>
+
+                    <div class="panel-body">
+                        <ng-form name="metric_form">
+                            {% csrf_token %}
+                            {% for record in monthly_metrics %}
+                                <div class="col-lg-6">
+                                    <h3>
+                                            <span
+                                                    class="label"
+                                                    ng-bind="metrics[{{ record.pk }}]"
+                                                    ng-style="{'background-color': convert_measurement_to_hsl(metrics[{{ record.pk }}])}"
+                                                    >
+                                                5
+                                            </span>
+                                        {{ record.metric.name }}
+                                    </h3>
+                                    <small>{{ record.metric.description_worst }}</small>
+                                    <br>
+                                    <small>{{ record.metric.description_best }}</small>
+
+                                    <div class="metric_input">
+                                        <input type="range" name="metric_{{ record.pk }}"
+                                               ng-model="metrics[{{ record.pk }}]"
+                                               ng-init="metrics['{{ record.pk }}'] = {{ record.measurement }}" min="1"
+                                               max="10">
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </ng-form>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
 
         <div class="row">
             <div class="btn btn-lg btn-block btn-success" ng-click="save_metrics()" ng-bind="save_text" ng-class="{'btn-success': save_text != 'Error', 'btn-danger': save_text == 'Error'}">Save</div>

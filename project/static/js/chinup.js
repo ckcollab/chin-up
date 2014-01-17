@@ -9,7 +9,18 @@ chinupApp
         $http.defaults.headers.common['X-CSRFToken'] = $('input[name="csrfmiddlewaretoken"]').val();
     });
 
-function ChinupController($scope, $http) {
+// Get parameters
+var get_params = decodeURIComponent(window.location.search.slice(1))
+                      .split('&')
+                      .reduce(function _reduce (/*Object*/ a, /*String*/ b) {
+                        b = b.split('=');
+                        a[b[0]] = b[1];
+                        return a;
+                      }, {});
+
+console.log(get_params);
+
+function ChinupController($scope, $http, $location) {
     $scope.metrics = {};
     $scope.save_text = "Save";
 
@@ -20,7 +31,7 @@ function ChinupController($scope, $http) {
 
         $http({
             method: 'POST',
-            url: '/input/',
+            url: '/input/?date=' + get_params['date'],
             data: $scope.metrics,
             headers: {'X-CSRFToken': $scope.metric_form['csrfmiddlewaretoken'], 'Content-Type': "application/x-www-form-urlencoded"}
             })
