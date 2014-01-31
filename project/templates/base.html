@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html ng-app>
 <head>
-    <title></title>
+    <title>chin up</title>
 
     <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}">
     <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
@@ -36,7 +36,8 @@
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
     <script type="text/javascript" src="{% static "js/gauge.min.js" %}"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script>
+    <script type="text/javascript" src="{% static "js/jquery.autosize.min.js" %}"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script>
 
     <script type="text/javascript" src="{% static "js/chinup.js" %}"></script>
 
@@ -60,6 +61,8 @@
                 gauge.maxValue = 10;
                 gauge.set(parseFloat($(this).attr('data-value')));
             });
+
+            $('textarea').addClass('textarea-transition').autosize();
         });
     </script>
 </body>
