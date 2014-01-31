@@ -57,4 +57,14 @@ function ChinupController($scope, $http, $location) {
 
         return 'hsl(' + hue + ', ' + sat + ', ' + l + ')';
     };
+
+    $scope.init_recording = function(record_pk, type, value) {
+        if($scope.metrics[record_pk] === undefined) {
+            $scope.metrics[record_pk] = {}
+        }
+
+        $scope.metrics[record_pk][type] = value;
+
+        console.log($scope.metrics[record_pk][type]);
+    };
 }

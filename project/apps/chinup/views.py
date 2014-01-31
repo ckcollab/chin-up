@@ -60,7 +60,8 @@ def input(request):
             if int(metric_pk) in metric_records_pks:
                 for m in metric_records:
                     if m.pk == int(metric_pk):
-                        m.measurement = value
+                        m.notes = value['notes']
+                        m.measurement = value['measurement']
                         m.save()
 
         return HttpResponse(status=200)

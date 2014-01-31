@@ -11,3 +11,6 @@
   margin: 0 20px;
   width: 65%;
 }
+textarea {
+  border-color: #CCC;
+}

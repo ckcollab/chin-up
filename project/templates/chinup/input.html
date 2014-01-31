@@ -5,7 +5,7 @@
         <div class="row">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h1>Daily Metrics <small>for {{ date|date:"M d" }}</small></h1>
+                    <h1>Daily Metrics <small>for {{ date|date:"D M d" }}</small></h1>
                     <a href="/input/?date={{ yesterday_link|date:"d M Y" }}">
                         <small>previous day</small>
                     </a> -
@@ -22,8 +22,8 @@
                                 <h3>
                                     <span
                                             class="label"
-                                            ng-bind="metrics[{{ record.pk }}]"
-                                            ng-style="{'background-color': convert_measurement_to_hsl(metrics[{{ record.pk }}])}"
+                                            ng-bind="metrics['{{ record.pk }}']['measurement']"
+                                            ng-style="{'background-color': convert_measurement_to_hsl(metrics['{{ record.pk }}']['measurement'])}"
                                     >
                                         5
                                     </span>
@@ -33,8 +33,22 @@
                                 <small>{{ record.metric.description_best }}</small>
 
                                 <div class="metric_input">
-                                    <input type="range" name="metric_{{ record.pk }}" ng-model="metrics[{{ record.pk }}]" ng-init="metrics['{{ record.pk }}'] = {{ record.measurement }}" min="1" max="10">
+                                    <input
+                                            type="range"
+                                            name="metric_{{ record.pk }}"
+                                            ng-model="metrics['{{ record.pk }}']['measurement']"
+                                            ng-init="init_recording('{{ record.pk }}', 'measurement', {{ record.measurement }})"
+                                            min="1"
+                                            max="10"
+                                            >
                                 </div>
+
+                                <textarea
+                                        class="col-lg-12"
+                                        ng-model="metrics['{{ record.pk }}']['notes']"
+                                        ng-init="init_recording('{{ record.pk }}', 'notes', '{{ record.notes|default:""|addslashes }}')"
+                                        >
+                                </textarea>
                             </div>
                         {% endfor %}
                     </ng-form>
@@ -46,7 +60,15 @@
             <div class="row">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h1>Monthly Metrics</h1>
+                        <h1>Daily Metrics
+                            <small>for {{ date|date:"D M d" }}</small>
+                        </h1>
+                        <a href="/input/?date={{ yesterday_link|date:"d M Y" }}">
+                            <small>previous day</small>
+                        </a> -
+                        <a href="/input/?date={{ tomorrow_link|date:"d M Y" }}">
+                            <small>next day</small>
+                        </a>
                     </div>
 
                     <div class="panel-body">
@@ -55,13 +77,13 @@
                             {% for record in monthly_metrics %}
                                 <div class="col-lg-6">
                                     <h3>
-                                            <span
-                                                    class="label"
-                                                    ng-bind="metrics[{{ record.pk }}]"
-                                                    ng-style="{'background-color': convert_measurement_to_hsl(metrics[{{ record.pk }}])}"
-                                                    >
-                                                5
-                                            </span>
+                                                <span
+                                                        class="label"
+                                                        ng-bind="metrics['{{ record.pk }}']['measurement']"
+                                                        ng-style="{'background-color': convert_measurement_to_hsl(metrics['{{ record.pk }}']['measurement'])}"
+                                                        >
+                                                    5
+                                                </span>
                                         {{ record.metric.name }}
                                     </h3>
                                     <small>{{ record.metric.description_worst }}</small>
@@ -69,11 +91,22 @@
                                     <small>{{ record.metric.description_best }}</small>
 
                                     <div class="metric_input">
-                                        <input type="range" name="metric_{{ record.pk }}"
-                                               ng-model="metrics[{{ record.pk }}]"
-                                               ng-init="metrics['{{ record.pk }}'] = {{ record.measurement }}" min="1"
-                                               max="10">
+                                        <input
+                                                type="range"
+                                                name="metric_{{ record.pk }}"
+                                                ng-model="metrics['{{ record.pk }}']['measurement']"
+                                                ng-init="init_recording('{{ record.pk }}', 'measurement', {{ record.measurement }})"
+                                                min="1"
+                                                max="10"
+                                                >
                                     </div>
+
+                                    <textarea
+                                            class="col-lg-12"
+                                            ng-model="metrics['{{ record.pk }}']['notes']"
+                                            ng-init="init_recording('{{ record.pk }}', 'notes', '{{ record.notes|default:""|addslashes }}')"
+                                            >
+                                    </textarea>
                                 </div>
                             {% endfor %}
                         </ng-form>
