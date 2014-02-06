@@ -5,8 +5,12 @@
         <div class="row">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h1>Daily <small>30 day avg</small></h1>
-
+                    <h1>Daily <small>{{ daily_metric_span }} day avg</small></h1>
+                    <small>
+                        <a href="/?daily_metric_span=7">7 day</a> -
+                        <a href="/?daily_metric_span=14">14 day</a> -
+                        <a href="/?daily_metric_span=30">30 day</a>
+                    </small>
                 </div>
 
                 <div class="panel-body">

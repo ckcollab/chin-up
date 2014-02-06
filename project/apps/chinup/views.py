@@ -26,9 +26,11 @@ def append_avg_measurement(metric_list, day_span=30):
     return combined
 
 def home(request):
+    daily_metric_span = int(request.GET.get('daily_metric_span', 30))
 
     return render(request, 'chinup/home.html', {
-        'daily_metrics': append_avg_measurement(Metric.objects.filter(daily=True)),
+        'daily_metric_span': daily_metric_span,
+        'daily_metrics': append_avg_measurement(Metric.objects.filter(daily=True), day_span=daily_metric_span),
         'monthly_metrics': append_avg_measurement(Metric.objects.filter(monthly=True), day_span=120),
     })
 
