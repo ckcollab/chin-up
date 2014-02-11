@@ -100,6 +100,7 @@ BASE_AND_LIBRARY_APPS = (
     'south',
     #'debug_toolbar',
     'gunicorn',
+    'django_extensions',
 )
 
 CHIN_UP_APPS = (

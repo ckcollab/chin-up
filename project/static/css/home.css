@@ -1,0 +1,7 @@
+.notes .note {
+  font-weight: bold;
+}
+.notes .note small {
+  font-weight: normal;
+  margin-left: 5px;
+}

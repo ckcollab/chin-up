@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="container">
-        <div class="row">
+    <div>
+        <div class="col-lg-8">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h1>Daily <small>{{ daily_metric_span }} day avg</small></h1>
@@ -40,5 +40,20 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-lg-3">
+            <div class="panel panel-default notes">
+                <div class="panel-heading">
+                    <h1>Notes <small>10 most recent</small></h1>
+                </div>
+
+                <div class="panel-body">
+                    {% for note in notes %}
+                        <p class="note alert alert-success">{{ note.0 }} <br><small>&mdash; {{ note.1|timesince }} ago</small></p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
     </div>
+
 {% endblock %}
