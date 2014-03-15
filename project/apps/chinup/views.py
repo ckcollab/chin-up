@@ -47,8 +47,6 @@ def input(request):
     else:
         date = datetime.date.today()
 
-    print date
-
     day_of_month = date.day
 
     metrics = Metric.objects.all()
@@ -61,7 +59,7 @@ def input(request):
     metric_records_pks = [m.pk for m in metric_records]
 
     if request.method == "POST":
-        data = json.loads(request.POST.items()[0][0])
+        data = json.loads(request.body)
 
         for metric_pk, value in data.items():
             # Make sure we aren't editing something we dont mean to, like if we didnt refresh the page since yesterday

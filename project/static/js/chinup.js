@@ -28,11 +28,13 @@ function ChinupController($scope, $http, $location) {
 
         $scope.metric_form['csrfmiddlewaretoken'] = $('input[name="csrfmiddlewaretoken"]').val();
 
+        console.log($scope.metrics);
+
         $http({
             method: 'POST',
             url: '/input/?date=' + $scope.date,
             data: $scope.metrics,
-            headers: {'X-CSRFToken': $scope.metric_form['csrfmiddlewaretoken'], 'Content-Type': "application/x-www-form-urlencoded"}
+            headers: {'X-CSRFToken': $scope.metric_form['csrfmiddlewaretoken'], 'Content-Type': "application/json"}
             })
             .success(function(data){
                 $scope.save_text = "Saved!";
