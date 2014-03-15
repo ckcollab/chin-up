@@ -18,11 +18,10 @@ var get_params = decodeURIComponent(window.location.search.slice(1))
                         return a;
                       }, {});
 
-console.log(get_params);
-
 function ChinupController($scope, $http, $location) {
     $scope.metrics = {};
     $scope.save_text = "Save";
+    $scope.date = get_params['date'] || '';
 
     $scope.save_metrics = function() {
         $scope.save_text = "Saving...";
@@ -31,7 +30,7 @@ function ChinupController($scope, $http, $location) {
 
         $http({
             method: 'POST',
-            url: '/input/?date=' + get_params['date'],
+            url: '/input/?date=' + $scope.date,
             data: $scope.metrics,
             headers: {'X-CSRFToken': $scope.metric_form['csrfmiddlewaretoken'], 'Content-Type': "application/x-www-form-urlencoded"}
             })

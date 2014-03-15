@@ -42,10 +42,12 @@ def home(request):
 def input(request):
     date_string = request.GET.get('date', None)
 
-    if date_string is not None:
+    if date_string is not None and date_string is not '':
         date = parser.parse(date_string)
     else:
         date = datetime.date.today()
+
+    print date
 
     day_of_month = date.day
 
