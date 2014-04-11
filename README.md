@@ -29,8 +29,20 @@ any worth or contribution to society.
 Sometimes it feels like even if I got a world record, made a million dollar idea come to fruition, or wrote some amazing
 novel programming library I'd still feel unhappy. That's why I need to start worrying about these metrics.
 
+
+Environment variables
+=====================
+```
+# Required
+export DATABASE_NAME='db'
+export DATABASE_USERNAME='postgres'
+export DATABASE_PASSWORD=''
+export DATABASE_HOST='localhost'
+```
+
+
 Example Tracking
-========
+================
 
 ### Daily tracking ###
 - Happy
