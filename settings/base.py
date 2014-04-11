@@ -14,9 +14,6 @@ DATABASE_NAME = os.environ.get("DATABASE_NAME")
 DATABASE_USERNAME = os.environ.get("DATABASE_USERNAME")
 DATABASE_PASSWORD = os.environ.get("DATABASE_PASSWORD")
 DATABASE_HOST = os.environ.get("DATABASE_HOST", '')
-SENTRY_DSN = os.environ.get("SENTRY_DSN", '')
-FACEBOOK_API_CLIENT_ID = os.environ.get("FACEBOOK_API_CLIENT_ID")
-FACEBOOK_API_SECRET = os.environ.get("FACEBOOK_API_SECRET")
 
 DATABASES = {
     'default': {
