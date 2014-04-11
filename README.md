@@ -29,7 +29,7 @@ any worth or contribution to society.
 Sometimes it feels like even if I got a world record, made a million dollar idea come to fruition, or wrote some amazing
 novel programming library I'd still feel unhappy. That's why I need to start worrying about these metrics.
 
-Tracking
+Example Tracking
 ========
 
 ### Daily tracking ###
@@ -62,36 +62,3 @@ Tracking
 - Nature
     * 1 being no outdoor activity
     * 10 being I spent the entire time camping and fishing
-
-
-Implementation
-========
-
-### Usage ###
-Page has 2 tabs: Output and Input
-
-**Output page**
-- A bunch of badass meters for each metric.
-- Graph view of the last 30 days
-- A list of notes for that current month (useful for making monthly evaluations like how many times did I go in nature)
-
-**Input page**
-- Coming to the input page you should see all of the daily metrics that still need entering.
-- You should setup a Google reminder at 915PM every day to fill in these metrics.
-- At the beginning of each month, monthly metrics should appear as well
-
-### Backup ###
-- Dump database daily to eric@ckcollab.com
-
-### Models ###
-**Metric**
-- Name (Happy)
-- Description of 1
-- Description of 10
-
-**Measurement**
-- Date/time
-- int 1 through 10
-- Notes for this measurement if applicable
-
-
