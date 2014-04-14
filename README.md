@@ -1,6 +1,11 @@
 chin up
 =======
 
+![my setup](docs/img/screenshots/home_view.png)
+
+![my setup](docs/img/screenshots/input.png)
+
+
 ### Why? ###
 To become the best I can be, I need motivation, I need to get my chin up.
 
