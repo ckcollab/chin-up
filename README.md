@@ -7,10 +7,10 @@ chin up
 
 
 ### Why? ###
-To become the best I can be, I need motivation, I need to get my chin up.
+To become the best I can be: I need motivation, I need to get my chin up.
 
 ### How do you measure? ###
-Every metric that I believe significantly effects my motivation and health will be measured on a scale frome 1 to 10.
+Every metric that I believe significantly effects my motivation and health will be measured on a scale from 1 to 10.
 If there is something significant to note, I'll put that down as well. However, the main goal is to motivate myself through
 numbers and statistics.
 
