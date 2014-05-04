@@ -22,6 +22,11 @@ EMAIL_HOST_PASSWORD = os.environ.get("SENDGRID_PASSWORD")
 EMAIL_PORT = '587'
 EMAIL_USE_TLS = True
 
+SENTRY_DSN = os.environ.get("SENTRY_DSN", '')
+RAVEN_CONFIG = {
+    'dsn': SENTRY_DSN
+}
+
 
 DATABASES = {
     'default': {
@@ -107,6 +112,7 @@ BASE_AND_LIBRARY_APPS = (
     'gunicorn',
     'django_extensions',
     'pin_passcode',
+    'raven.contrib.django.raven_compat',
 )
 
 CHIN_UP_APPS = (
