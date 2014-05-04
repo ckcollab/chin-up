@@ -91,7 +91,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'chinup.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'chinup.wsgi.application'
+WSGI_APPLICATION = 'wsgi.application'
 
 BASE_AND_LIBRARY_APPS = (
     'django.contrib.admin',
