@@ -98,11 +98,11 @@ BASE_AND_LIBRARY_APPS = (
     #'debug_toolbar',
     'gunicorn',
     'django_extensions',
+    'pin_passcode',
 )
 
 CHIN_UP_APPS = (
     'chinup',
-    'pin_passcode',
 )
 
 INSTALLED_APPS = BASE_AND_LIBRARY_APPS + CHIN_UP_APPS
