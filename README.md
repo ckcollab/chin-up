@@ -51,7 +51,7 @@ Install requirements
 pip install -r requirements/base.txt
 ```
 
-Setup the database
+Syncdb and migrate
 ```
 python manage.py syncdb --migrate
 ```
@@ -60,6 +60,8 @@ Test it out
 ```
 python manage.py runserver
 ```
+
+Then go to `http://localhost:8000/admin/` and add daily/monthly tracking items.
 
 
 
