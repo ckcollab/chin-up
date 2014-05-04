@@ -1,1 +1,1 @@
-web: gunicorn --port=$PORT wsgi:application --log-level debug
+web: gunicorn --port=$PORT --log-level debug wsgi:application
