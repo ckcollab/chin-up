@@ -35,15 +35,32 @@ Sometimes it feels like even if I got a world record, made a million dollar idea
 novel programming library I'd still feel unhappy. That's why I need to start worrying about these metrics.
 
 
-Environment variables
-=====================
+Setup
+=====
+
+Setup the database environment variables
 ```
-# Required
 export DATABASE_NAME='db'
 export DATABASE_USERNAME='postgres'
 export DATABASE_PASSWORD=''
 export DATABASE_HOST='localhost'
 ```
+
+Install requirements
+```
+pip install -r requirements/base.txt
+```
+
+Setup the database
+```
+python manage.py syncdb --migrate
+```
+
+Test it out
+```
+python manage.py runserver
+```
+
 
 
 Example Tracking
