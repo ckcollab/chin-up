@@ -1,1 +1,1 @@
-web: gunicorn --port=$PORT wsgi:application
+web: python project/manage.py runserver 0.0.0.0:$PORT --noreload
