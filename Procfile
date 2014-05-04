@@ -1,1 +1,1 @@
-web: python project/manage.py runserver 0.0.0.0:$PORT --noreload
+web: gunicorn --port=$PORT wsgi:application --log-level debug
