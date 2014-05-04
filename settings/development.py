@@ -3,6 +3,10 @@ from .base import *
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+MIDDLEWARE_CLASSES += (
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+)
+
 DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS': False,
     'HIDE_DJANGO_SQL': False,

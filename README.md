@@ -65,8 +65,10 @@ Then go to `http://localhost:8000/admin/` and add daily/monthly tracking items.
 
 
 
-Example Tracking
-================
+Example tracking items
+======================
+
+If you want the same setup I have, go to the `admin` screen and add these items.
 
 ### Daily tracking ###
 - Happy

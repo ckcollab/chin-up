@@ -27,6 +27,10 @@
                 <li {% if '/' == request.path %}class="active"{% endif %}><a href="/">Home</a></li>
                 <li {% if 'input/' in request.path %}class="active"{% endif %}><a href="/input/?date={%  now "d M Y" %}">Input</a></li>
             </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url "auth:logout" %}">Logout</a> </li>
+            </ul>
         </div>
     </nav>
 
@@ -34,11 +38,11 @@
 
     {% endblock %}
 
-    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
     <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
     <script type="text/javascript" src="{% static "js/gauge.min.js" %}"></script>
     <script type="text/javascript" src="{% static "js/jquery.autosize.min.js" %}"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script>
+    <script type="text/javascript" src="{% static "js/angular.min.js" %}"></script>
 
     <script type="text/javascript" src="{% static "js/chinup.js" %}"></script>
 

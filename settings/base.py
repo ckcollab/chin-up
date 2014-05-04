@@ -77,7 +77,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'pin_passcode.middleware.PinPasscodeMiddleware',
 )
 
 ROOT_URLCONF = 'chinup.urls'
@@ -102,6 +102,7 @@ BASE_AND_LIBRARY_APPS = (
 
 CHIN_UP_APPS = (
     'chinup',
+    'pin_passcode',
 )
 
 INSTALLED_APPS = BASE_AND_LIBRARY_APPS + CHIN_UP_APPS
@@ -141,3 +142,8 @@ LOGGING = {
         },
     },
 }
+
+
+# Django pin passcode
+PIN_PASSCODE_USERNAME = 'eric'
+PIN_PASSCODE_PIN = os.environ.get('PIN_PASSCODE_PIN')

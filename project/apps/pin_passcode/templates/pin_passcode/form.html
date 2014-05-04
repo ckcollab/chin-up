@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PinPasscode Login</title>
+</head>
+<body>
+
+<form action="{% url "pin_auth" %}?next={{ request.GET.next }}" method="POST">
+    {% csrf_token %}
+    <input type="number" name="pin" placeholder="0123">
+    <input type="submit">
+</form>
+
+</body>
+</html>

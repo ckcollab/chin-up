@@ -7,9 +7,11 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
+    url('auth', include('django.contrib.auth.urls', namespace='auth')),
 
     url(r'^$', 'chinup.views.home', name='home'),
     url(r'^input[/]$', 'chinup.views.input', name='input'),
+    url(r'^', include('pin_passcode.urls')),
 )
 
 if settings.DEBUG:
