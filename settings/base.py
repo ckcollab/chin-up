@@ -104,7 +104,7 @@ BASE_AND_LIBRARY_APPS = (
 
     'south',
     #'debug_toolbar',
-    'waitress',
+    'gunicorn',
     'django_extensions',
     'pin_passcode',
 )
