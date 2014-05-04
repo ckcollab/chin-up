@@ -16,11 +16,11 @@ DATABASE_USERNAME = os.environ.get("DATABASE_USERNAME")
 DATABASE_PASSWORD = os.environ.get("DATABASE_PASSWORD")
 DATABASE_HOST = os.environ.get("DATABASE_HOST", '')
 
-#EMAIL_HOST = 'smtp.sendgrid.net'
-#EMAIL_HOST_USER = os.environ.get("SENDGRID_USERNAME")
-#EMAIL_HOST_PASSWORD = os.environ.get("SENDGRID_PASSWORD")
-#EMAIL_PORT = '587'
-#EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = os.environ.get("SENDGRID_USERNAME")
+EMAIL_HOST_PASSWORD = os.environ.get("SENDGRID_PASSWORD")
+EMAIL_PORT = '587'
+EMAIL_USE_TLS = True
 
 SENTRY_DSN = os.environ.get("SENTRY_DSN", '')
 RAVEN_CONFIG = {
