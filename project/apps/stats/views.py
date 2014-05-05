@@ -8,6 +8,8 @@ from chinup.models import Metric, MetricRecord
 
 
 def stats_view(request):
+    days = int(request.GET.get('days', 365))
+
     metrics = Metric.objects.all()
     monthly = {}
     weekly = {}
@@ -16,7 +18,7 @@ def stats_view(request):
     for m in metrics:
         measurements = MetricRecord.objects.filter(metric=m)
         monthly[m.name] = qsstats.QuerySetStats(measurements, 'datetime').time_series(
-            datetime.date.today() - datetime.timedelta(days=365),
+            datetime.date.today() - datetime.timedelta(days=days),
             datetime.date.today(),
             aggregate=Avg('measurement'),
             interval='months'
@@ -24,14 +26,14 @@ def stats_view(request):
 
         if not m.monthly:
             weekly[m.name] = qsstats.QuerySetStats(measurements, 'datetime').time_series(
-                datetime.date.today() - datetime.timedelta(days=365),
+                datetime.date.today() - datetime.timedelta(days=days),
                 datetime.date.today(),
                 aggregate=Avg('measurement'),
                 interval='weeks'
             )
 
             daily[m.name] = qsstats.QuerySetStats(measurements, 'datetime').time_series(
-                datetime.date.today() - datetime.timedelta(days=365),
+                datetime.date.today() - datetime.timedelta(days=days),
                 datetime.date.today(),
                 aggregate=Avg('measurement'),
                 interval='days'
