@@ -15,3 +15,4 @@ six==1.5.2
 sqlparse==0.1.10
 static==0.4
 wsgiref==0.1.2
+django-qsstats-magic

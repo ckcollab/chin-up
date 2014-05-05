@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% load dictionary %}
+
+{% block content %}
+    <div id="graph"></div>
+
+
+    <script type="text/javascript">
+        $(function() {
+            $('#graph').highcharts({
+                chart: {
+                    type: 'spline'
+                },
+                title: {
+                    text: 'Monthly averages'
+                },
+                xAxis: {
+                    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                },
+                yAxis: {
+                    title: {
+                        text: '1-10 rating'
+                    },
+                    labels: {
+                        formatter: function() {
+                            return this.value + '°'
+                        }
+                    }
+                },
+                tooltip: {
+                    crosshairs: true,
+                    shared: true
+                },
+                plotOptions: {
+                    spline: {
+                        marker: {
+                            radius: 4,
+                            lineColor: '#666666',
+                            lineWidth: 1
+                        }
+                    }
+                },
+                series: [
+                    {% for m in metrics %}
+                        {
+                            name: "{{ m.name }}",
+                            data: [
+                                {% for measurement in measurements|get_item:m.name %}
+                                    {{ measurement.1 }},
+                                {% endfor %}
+                            ]
+                        },
+                    {% endfor %}
+                ]
+            });
+        });
+    </script>
+{% endblock %}

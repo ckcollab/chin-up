@@ -11,7 +11,9 @@ urlpatterns = patterns('',
 
     url(r'^$', 'chinup.views.home', name='home'),
     url(r'^input[/]$', 'chinup.views.input', name='input'),
+
     url(r'^', include('pin_passcode.urls')),
+    url(r'^', include('stats.urls')),
 )
 
 if settings.DEBUG:

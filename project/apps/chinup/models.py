@@ -1,3 +1,6 @@
+import datetime
+
+from datetime import timedelta
 from django.db import models
 
 
@@ -14,6 +17,17 @@ class Metric(models.Model):
 
         if self.monthly:
             return "monthly"
+
+    def average_span(self, day_span=30):
+        avg = MetricRecord.objects.filter(
+            metric=self,
+            datetime__gt=datetime.datetime.today() - timedelta(days=day_span),
+            datetime__lt=datetime.datetime.today()
+        ).aggregate(models.Avg('measurement'))
+
+        return avg['measurement__avg']
+
+    #def average_range(self, ):
 
     def __unicode__(self):
         return "%s (%s)" % (self.name, self.how_often_string())

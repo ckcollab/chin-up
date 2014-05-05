@@ -117,6 +117,7 @@ BASE_AND_LIBRARY_APPS = (
 
 CHIN_UP_APPS = (
     'chinup',
+    'stats',
 )
 
 INSTALLED_APPS = BASE_AND_LIBRARY_APPS + CHIN_UP_APPS

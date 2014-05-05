@@ -11,10 +11,10 @@ from django.shortcuts import render
 from .models import Metric, MetricRecord
 
 
-def append_avg_measurement(metric_list, day_span=30):
+def append_avg_measurement(metrics, day_span=30):
     combined = []
 
-    for m in metric_list:
+    for m in metrics:
         avg = MetricRecord.objects.filter(
             metric=m,
             datetime__gt=datetime.datetime.today() - timedelta(days=day_span),

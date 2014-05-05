@@ -9,6 +9,8 @@
     <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
     <link rel="stylesheet" type="text/css" href="{% static "css/input.css" %}">
     <link rel="stylesheet" type="text/css" href="{% static "css/home.css" %}">
+
+    <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
 </head>
 <body ng-controller="ChinupController">
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -24,8 +26,15 @@
 
         <div class="collapse navbar-collapse" id="navbar-mobile-menu">
             <ul class="nav navbar-nav">
-                <li {% if '/' == request.path %}class="active"{% endif %}><a href="/">Home</a></li>
-                <li {% if 'input/' in request.path %}class="active"{% endif %}><a href="/input/?date={%  now "d M Y" %}">Input</a></li>
+                <li {% if '/' == request.path %}class="active"{% endif %}>
+                    <a href="/">Home</a>
+                </li>
+                <li {% if 'input/' in request.path %}class="active"{% endif %}>
+                    <a href="/input/?date={%  now "d M Y" %}">Input</a>
+                </li>
+                <li {% if 'stats/' in request.path %}class="active"{% endif %}>
+                    <a href="/stats/?date={% now "d M Y" %}">Stats</a>
+                </li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
@@ -38,7 +47,7 @@
 
     {% endblock %}
 
-    <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/highcharts.js" %}"></script>
     <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
     <script type="text/javascript" src="{% static "js/gauge.min.js" %}"></script>
     <script type="text/javascript" src="{% static "js/jquery.autosize.min.js" %}"></script>
