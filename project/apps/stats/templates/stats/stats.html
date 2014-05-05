@@ -26,8 +26,11 @@
                     text: 'Month to month'
                 },
                 xAxis: {
-                    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                    categories: [
+                        {% for m in months_y_axis %}
+                            "{{ m }}",
+                        {% endfor %}
+                    ]
                 },
                 yAxis: {
                     title: {

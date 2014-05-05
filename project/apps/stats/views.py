@@ -15,9 +15,18 @@ def stats_view(request):
     weekly = {}
     daily = {}
 
+    earliest_recorded_entry = MetricRecord.objects.all().order_by('datetime')[:1][0]
+
+    max_days = datetime.datetime.now().date() - earliest_recorded_entry.datetime
+
+    if days > max_days.days:
+        days = max_days.days
+
+    print earliest_recorded_entry
+
     for m in metrics:
-        measurements = MetricRecord.objects.filter(metric=m)
-        monthly[m.name] = qsstats.QuerySetStats(measurements, 'datetime').time_series(
+        month_query = MetricRecord.objects.filter(metric=m, measurement__gt=0)
+        monthly[m.name] = qsstats.QuerySetStats(month_query, 'datetime').time_series(
             datetime.date.today() - datetime.timedelta(days=days),
             datetime.date.today(),
             aggregate=Avg('measurement'),
@@ -25,6 +34,8 @@ def stats_view(request):
         )
 
         if not m.monthly:
+            measurements = MetricRecord.objects.filter(metric=m)
+
             weekly[m.name] = qsstats.QuerySetStats(measurements, 'datetime').time_series(
                 datetime.date.today() - datetime.timedelta(days=days),
                 datetime.date.today(),
@@ -60,14 +71,19 @@ def stats_view(request):
 
         daily[key] = [v for d, v in days_of_week.items()]
 
+    all_months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    months_y_axis = []
 
-    earliest_date_recorded = datetime.datetime.today()
+    for month_number in range(earliest_recorded_entry.datetime.month, datetime.datetime.today().month + 1):
+        months_y_axis.append(all_months[month_number - 1])
 
-    for key, value in monthly.items():
-        for entry in value:
-            date = entry[0]
-            if date < earliest_date_recorded:
-                earliest_date_recorded = date
+    print months_y_axis
+    print datetime.datetime.today().month
+
+    #earliest_date_recorded.strftime("%b")
+
+    #print
+
 
 
     #import ipdb;ipdb.set_trace()
@@ -78,7 +94,7 @@ def stats_view(request):
 
 
     return render(request, "stats/stats.html", {
-        'months_to_ignore': range(1, earliest_date_recorded.month),
+        'months_y_axis': months_y_axis,
         'monthly_measurements': monthly,
         'weekly_measurements': weekly,
         'day_of_week_measurements': daily,

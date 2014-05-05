@@ -5,6 +5,8 @@ chin up
 
 ![my setup](docs/img/screenshots/input.png)
 
+![my setup](docs/img/screenshots/stats.png)
+
 
 ### Why? ###
 To become the best I can be: I need motivation, I need to get my chin up.
