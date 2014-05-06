@@ -17,4 +17,5 @@ class ChinupDjangoBackend(DjangoBackend):
 
         print 'PREPARING PAGE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%'
 
-        subprocess.call(["python", "manage.py", "shell", "<", self.SCRIPT])
+        #subprocess.call(["python", "manage.py", "shell", "<", self.SCRIPT])
+        subprocess.check_call('python manage.py shell < %s' % self.SCRIPT, shell=True)
