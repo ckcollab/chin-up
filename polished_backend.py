@@ -5,16 +5,14 @@ from polished.backends import DjangoBackend
 
 
 class ChinupDjangoBackend(DjangoBackend):
-    SCRIPT_PATH = ''
+    TEMP_SCRIPT = None
 
     def __init__(self, *args, **kwargs):
         super(ChinupDjangoBackend, self).__init__(*args, **kwargs)
         script_data = open("generate_data.py", "r").read()
 
-        f = tempfile.NamedTemporaryFile()
-        f.write(script_data)
-
-        self.SCRIPT = f.name
+        self.TEMP_SCRIPT = tempfile.NamedTemporaryFile(delete=False)
+        self.TEMP_SCRIPT.write(script_data)
 
     def prepare_page(self, *args, **kwargs):
         super(ChinupDjangoBackend, self).prepare_page(*args, **kwargs)
@@ -22,4 +20,4 @@ class ChinupDjangoBackend(DjangoBackend):
         print 'PREPARING PAGE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%'
 
         #subprocess.call(["python", "manage.py", "shell", "<", self.SCRIPT])
-        subprocess.check_call('python manage.py shell < %s' % self.SCRIPT, shell=True)
+        subprocess.check_call('python manage.py shell < %s' % self.TEMP_SCRIPT.name, shell=True)
