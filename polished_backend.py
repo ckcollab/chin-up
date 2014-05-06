@@ -11,7 +11,7 @@ class ChinupDjangoBackend(DjangoBackend):
         super(ChinupDjangoBackend, self).__init__(*args, **kwargs)
         script_data = open("generate_data.py", "r").read()
 
-        self.TEMP_SCRIPT = tempfile.NamedTemporaryFile(delete=False)
+        self.TEMP_SCRIPT = tempfile.NamedTemporaryFile()
         self.TEMP_SCRIPT.write(script_data)
 
     def prepare_page(self, *args, **kwargs):
@@ -24,3 +24,8 @@ class ChinupDjangoBackend(DjangoBackend):
             subprocess.check_call('python manage.py shell < %s' % self.TEMP_SCRIPT.name, shell=True)
         except Exception:
             pass
+
+
+    def dispose(self, *args, **kwargs):
+        self.TEMP_SCRIPT.close()
+        super(ChinupDjangoBackend, self).dispose(*args, **kwargs)
