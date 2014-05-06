@@ -1,10 +1,16 @@
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+import subprocess
 
 from polished.backends import DjangoBackend
-from polished.decorators import polish
 
 
 class ChinupDjangoBackend(DjangoBackend):
-    pass
+    SCRIPT = ''
+
+    def __init__(self, *args, **kwargs):
+        super(ChinupDjangoBackend, self).__init__(*args, **kwargs)
+        self.SCRIPT = open("generate_data.py", "r").read()
+
+    def prepare_page(self, *args, **kwargs):
+        super(ChinupDjangoBackend, self).prepare_page(*args, **kwargs)
+
+        subprocess.call(["python", "manage.py", "shell", "<", self.SCRIPT])
