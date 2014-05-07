@@ -1,6 +1,7 @@
 .idea/*
 venv/*
 polished
+polished_output/
 
 *.py[cod]
 
