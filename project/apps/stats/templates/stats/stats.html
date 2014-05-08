@@ -6,11 +6,11 @@
 {% block content %}
     <div class="container graph-container" ng-controller="StatsController" ng-init="init_graphs()">
         <div class="btn-group">
-            <button class="btn btn-primary" ng-click="select_graph('month-to-month')">Month-to-month</button>
-            <button class="btn btn-default" ng-click="select_graph('week-to-week')">Week-to-week</button>
-            <button class="btn btn-default" ng-click="select_graph('day-to-day')">Day-to-day</button>
-            <button class="btn btn-default" ng-click="select_graph('last 7 days')">Last 7 days</button>
-            <button class="btn btn-default" ng-click="select_graph('last 30 days')">Last 30 days</button>
+            <button class="btn btn-default" ng-class="{'btn-primary': is_graph_showing('month-to-month')}" ng-click="select_graph('month-to-month')">Month-to-month</button>
+            <button class="btn btn-default" ng-class="{'btn-primary': is_graph_showing('week-to-week')}" ng-click="select_graph('week-to-week')">Week-to-week</button>
+            <button class="btn btn-default" ng-class="{'btn-primary': is_graph_showing('day-to-day')}" ng-click="select_graph('day-to-day')">Day-to-day</button>
+            <button class="btn btn-default" ng-class="{'btn-primary': is_graph_showing('last 7 days')}" ng-click="select_graph('last 7 days')">Last 7 days</button>
+            <button class="btn btn-default" ng-class="{'btn-primary': is_graph_showing('last 30 days')}" ng-click="select_graph('last 30 days')">Last 30 days</button>
         </div>
 
         <div id="monthly" ng-show="is_graph_showing('month-to-month')"></div>
