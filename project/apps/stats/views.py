@@ -97,7 +97,9 @@ def stats_view(request):
     day_names = ['Sun', 'Mon', 'Tues', 'Weds', 'Thurs', 'Fri', 'Sat']
 
     for metric_record in last_7_days[last_7_days.keys()[0]]:
-        last_7_day_names.append(day_names[metric_record[0].isoweekday() - 1])
+        # For some reason the day is one behind, adjuuust
+        day_adjusted = (metric_record[0] + datetime.timedelta(days=1)).isoweekday() - 1
+        last_7_day_names.append(day_names[day_adjusted])
 
     return render(request, "stats/stats.html", {
         'months_y_axis': months_y_axis,
