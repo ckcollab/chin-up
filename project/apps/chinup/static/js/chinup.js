@@ -1,10 +1,9 @@
-var chinupApp = angular.module('chinupApp', ['ngCookies']);
+var chinupApp = angular.module('chinupApp', ['ngCookies'], function($interpolateProvider) {
+    $interpolateProvider.startSymbol('[[');
+    $interpolateProvider.endSymbol(']]');
+});
 
 chinupApp
-    .config(function($interpolateProvider) {
-        $interpolateProvider.startSymbol('{[{');
-        $interpolateProvider.endSymbol('}]}');
-    })
     .run(function($rootScope, $log, $http, $cookies) {
         $http.defaults.headers.common['X-CSRFToken'] = $('input[name="csrfmiddlewaretoken"]').val();
     });

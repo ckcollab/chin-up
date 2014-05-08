@@ -14,6 +14,8 @@ def stats_view(request):
     monthly = {}
     weekly = {}
     daily = {}
+    last_7_days = {}
+    last_30_days = {}
 
     earliest_recorded_entry = MetricRecord.objects.all().order_by('datetime')[:1][0]
 
@@ -50,6 +52,20 @@ def stats_view(request):
                 interval='days'
             )
 
+            last_7_days[m.name] = qsstats.QuerySetStats(measurements, 'datetime').time_series(
+                datetime.date.today() - datetime.timedelta(days=6),
+                datetime.date.today(),
+                aggregate=Avg('measurement'),
+                interval='days'
+            )
+
+            last_30_days[m.name] = qsstats.QuerySetStats(measurements, 'datetime').time_series(
+                datetime.date.today() - datetime.timedelta(days=30),
+                datetime.date.today(),
+                aggregate=Avg('measurement'),
+                interval='days'
+            )
+
     for key, value in daily.items():
         days_of_week = {'7': []}
         for i in range(1, 7):
@@ -77,26 +93,19 @@ def stats_view(request):
     for month_number in range(earliest_recorded_entry.datetime.month, datetime.datetime.today().month + 1):
         months_y_axis.append(all_months[month_number - 1])
 
-    print months_y_axis
-    print datetime.datetime.today().month
+    last_7_day_names = []
+    day_names = ['Sun', 'Mon', 'Tues', 'Weds', 'Thurs', 'Fri', 'Sat']
 
-    #earliest_date_recorded.strftime("%b")
-
-    #print
-
-
-
-    #import ipdb;ipdb.set_trace()
-
-    # get all metric types
-    # get average stats per month
-    # get average stats per day (Mon-Sun)
-
+    for metric_record in last_7_days[last_7_days.keys()[0]]:
+        last_7_day_names.append(day_names[metric_record[0].isoweekday() - 1])
 
     return render(request, "stats/stats.html", {
         'months_y_axis': months_y_axis,
         'monthly_measurements': monthly,
         'weekly_measurements': weekly,
         'day_of_week_measurements': daily,
-        'metrics': metrics
+        'metrics': metrics,
+        'last_7_days': last_7_days,
+        'last_30_days': last_30_days,
+        'last_7_day_names': last_7_day_names
     })

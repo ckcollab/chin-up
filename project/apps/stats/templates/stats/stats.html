@@ -1,23 +1,51 @@
 {% extends "base.html" %}
 
 {% load dictionary %}
+{% load static %}
 
 {% block content %}
-    <div class="container">
-        <div id="monthly"></div>
+    <div class="container graph-container" ng-controller="StatsController" ng-init="init_graphs()">
+        <div class="btn-group">
+            <button class="btn btn-primary" ng-click="select_graph('month-to-month')">Month-to-month</button>
+            <button class="btn btn-default" ng-click="select_graph('week-to-week')">Week-to-week</button>
+            <button class="btn btn-default" ng-click="select_graph('day-to-day')">Day-to-day</button>
+            <button class="btn btn-default" ng-click="select_graph('last 7 days')">Last 7 days</button>
+            <button class="btn btn-default" ng-click="select_graph('last 30 days')">Last 30 days</button>
+        </div>
 
-        <br><br>
-
-        <div id="weekly"></div>
-
-        <br><br>
-
-        <div id="day_of_week"></div>
+        <div id="monthly" ng-show="is_graph_showing('month-to-month')"></div>
+        <div id="weekly" ng-show="is_graph_showing('week-to-week')"></div>
+        <div id="day_of_week" ng-show="is_graph_showing('day-to-day')"></div>
+        <div id="last_7_days" ng-show="is_graph_showing('last 7 days')"></div>
     </div>
 
-
+    <script src="{% static "js/stats.js" %}"></script>
     <script type="text/javascript">
         $(function() {
+            var yAxis = {
+                ceiling: 10,
+                max: 10,
+                floor: 0,
+                title: {
+                    text: '1-10 rating'
+                },
+                labels: {
+                    formatter: function() {
+                        return this.value;
+                    }
+                }
+            };
+
+            var plot_options = {
+                spline: {
+                    marker: {
+                        radius: 4,
+                        lineColor: '#666666',
+                        lineWidth: 1
+                    }
+                }
+            };
+
             $('#monthly').highcharts({
                 chart: {
                     type: 'spline'
@@ -32,31 +60,12 @@
                         {% endfor %}
                     ]
                 },
-                yAxis: {
-                    ceiling: 10,
-                    max: 10,
-                    title: {
-                        text: '1-10 rating'
-                    },
-                    labels: {
-                        formatter: function() {
-                            return this.value;
-                        }
-                    }
-                },
+                yAxis: yAxis,
                 tooltip: {
                     crosshairs: true,
                     shared: true
                 },
-                plotOptions: {
-                    spline: {
-                        marker: {
-                            radius: 4,
-                            lineColor: '#666666',
-                            lineWidth: 1
-                        }
-                    }
-                },
+                plotOptions: plot_options,
                 series: [
                     {% for m in metrics %}
                         {
@@ -78,31 +87,12 @@
                 title: {
                     text: 'Weekly'
                 },
-                yAxis: {
-                    ceiling: 10,
-                    max: 10,
-                    title: {
-                        text: '1-10 rating'
-                    },
-                    labels: {
-                        formatter: function() {
-                            return this.value
-                        }
-                    }
-                },
+                yAxis: yAxis,
                 tooltip: {
                     crosshairs: true,
                     shared: true
                 },
-                plotOptions: {
-                    spline: {
-                        marker: {
-                            radius: 4,
-                            lineColor: '#666666',
-                            lineWidth: 1
-                        }
-                    }
-                },
+                plotOptions: plot_options,
                 series: [
                     {% for m in metrics %}
                         {
@@ -127,37 +117,52 @@
                 xAxis: {
                     categories: ['Mon', 'Tues', 'Weds', 'Thurs', 'Fri', 'Sat', 'Sun']
                 },
-                yAxis: {
-                    ceiling: 10,
-                    max: 10,
-                    title: {
-                        text: '1-10 rating'
-                    },
-                    labels: {
-                        formatter: function() {
-                            return this.value
-                        }
-                    }
-                },
+                yAxis: yAxis,
                 tooltip: {
                     crosshairs: true,
                     shared: true
                 },
-                plotOptions: {
-                    spline: {
-                        marker: {
-                            radius: 4,
-                            lineColor: '#666666',
-                            lineWidth: 1
-                        }
-                    }
-                },
+                plotOptions: plot_options,
                 series: [
                     {% for m in metrics %}
                         {
                             name: "{{ m.name }}",
                             data: [
                                 {% for measurement in day_of_week_measurements|get_item:m.name %}
+                                    {{ measurement.1 }},
+                                {% endfor %}
+                            ]
+                        },
+                    {% endfor %}
+                ]
+            });
+
+            $('#last_7_days').highcharts({
+                chart: {
+                    type: 'spline'
+                },
+                title: {
+                    text: 'Days of the week'
+                },
+                xAxis: {
+                    categories: [
+                        {% for d in last_7_day_names %}
+                            "{{ d }}",
+                        {% endfor %}
+                    ]
+                },
+                yAxis: yAxis,
+                tooltip: {
+                    crosshairs: true,
+                    shared: true
+                },
+                plotOptions: plot_options,
+                series: [
+                    {% for m in metrics %}
+                        {
+                            name: "{{ m.name }}",
+                            data: [
+                                {% for measurement in last_7_days|get_item:m.name %}
                                     {{ measurement.1 }},
                                 {% endfor %}
                             ]
