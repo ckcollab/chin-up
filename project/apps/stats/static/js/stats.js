@@ -1,5 +1,7 @@
 function StatsController($scope, $http, $location) {
     $scope.select_graph = function(graph_name) {
+        localStorage.setItem("last_graph_name", graph_name);
+
         $scope.graph_name = graph_name;
         setTimeout(function() {
             $(window).resize();
@@ -13,6 +15,8 @@ function StatsController($scope, $http, $location) {
 
     // Init
     $scope.init_graphs = function() {
-        $scope.select_graph('month-to-month');
+        var graph_name = localStorage.getItem("last_graph_name") || "month-to-month";
+
+        $scope.select_graph(graph_name);
     };
 }

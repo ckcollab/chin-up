@@ -17,6 +17,7 @@
         <div id="weekly" ng-show="is_graph_showing('week-to-week')"></div>
         <div id="day_of_week" ng-show="is_graph_showing('day-to-day')"></div>
         <div id="last_7_days" ng-show="is_graph_showing('last 7 days')"></div>
+        <div id="last_30_days" ng-show="is_graph_showing('last 30 days')"></div>
     </div>
 
     <script src="{% static "js/stats.js" %}"></script>
@@ -163,6 +164,40 @@
                             name: "{{ m.name }}",
                             data: [
                                 {% for measurement in last_7_days|get_item:m.name %}
+                                    {{ measurement.1 }},
+                                {% endfor %}
+                            ]
+                        },
+                    {% endfor %}
+                ]
+            });
+
+            $('#last_30_days').highcharts({
+                chart: {
+                    type: 'spline'
+                },
+                title: {
+                    text: 'Last 30 days'
+                },
+                xAxis: {
+                    title: {
+                        text: 'days ago'
+                    },
+                    tickInterval: 5,
+                    categories: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30].reverse()
+                },
+                yAxis: yAxis,
+                tooltip: {
+                    crosshairs: true,
+                    shared: true
+                },
+                plotOptions: plot_options,
+                series: [
+                    {% for m in metrics %}
+                        {
+                            name: "{{ m.name }}",
+                            data: [
+                                {% for measurement in last_30_days|get_item:m.name %}
                                     {{ measurement.1 }},
                                 {% endfor %}
                             ]
