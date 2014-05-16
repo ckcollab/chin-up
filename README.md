@@ -5,8 +5,6 @@ chin up
 
 ![my setup](docs/img/screenshots/input.png)
 
-![my setup](docs/img/screenshots/stats.png)
-
 
 ### Why? ###
 To become the best I can be: I need motivation, I need to get my chin up.
@@ -66,6 +64,19 @@ python manage.py runserver
 ```
 
 Then go to `http://localhost:8000/admin/` and add daily/monthly tracking items.
+
+
+Stats
+=====
+
+![my setup](docs/img/screenshots/stats.png)
+
+ * **Month to month** - Average for the entire month
+ * **Week to week** - Average for the entire week
+ * **Day of the week** - Average for that day of the week for the last year
+ * **7 day** - Last 7 day simple
+ * **30 day** - Last 30 day simple
+
 
 
 
