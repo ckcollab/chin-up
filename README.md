@@ -79,6 +79,16 @@ Stats
 
 
 
+Easy login
+==========
+
+<p align="center" class="image-wrapper"><img src="https://raw.githubusercontent.com/ckcollab/chin-up/master/docs/img/screenshots/pin_passcode.png" alt="django-pin-passcode screen"></p>
+
+To make Chin Up easier to use, I made a simple app and threw it on pypi called [django-pin-passcode](https://github.com/ckcollab/django-pin-passcode).
+It logs you in to the user you define after you enter a certain passcode composed of 0-9 and #.
+
+
+
 
 Example tracking items
 ======================
