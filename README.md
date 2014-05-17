@@ -125,3 +125,9 @@ If you want the same setup I have, go to the `admin` screen and add these items.
 - Nature
     * 1 being no outdoor activity
     * 10 being I spent the entire time camping and fishing
+
+
+Acknowledgements
+================
+
+I got this idea from [Steven Skoczen](https://github.com/skoczen)
