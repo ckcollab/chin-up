@@ -54,7 +54,7 @@ STATICFILES_DIRS = (abspath(join(PROJECT_ROOT, 'static')),)
 
 TEMPLATE_DIRS = (abspath(join(PROJECT_ROOT, 'templates')),)
 
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'US/Pacific'
 LANGUAGE_CODE = 'en-us'
 
 SITE_ID = 1
