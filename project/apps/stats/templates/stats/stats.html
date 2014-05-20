@@ -5,19 +5,33 @@
 
 {% block content %}
     <div class="container graph-container" ng-controller="StatsController" ng-init="init_graphs()">
-        <div class="btn-group">
-            <button class="btn btn-default" ng-class="{'btn-primary': is_graph_showing('month-to-month')}" ng-click="select_graph('month-to-month')">Month-to-month</button>
-            <button class="btn btn-default" ng-class="{'btn-primary': is_graph_showing('week-to-week')}" ng-click="select_graph('week-to-week')">Week-to-week</button>
-            <button class="btn btn-default" ng-class="{'btn-primary': is_graph_showing('day-to-day')}" ng-click="select_graph('day-to-day')">Day-to-day</button>
-            <button class="btn btn-default" ng-class="{'btn-primary': is_graph_showing('last 7 days')}" ng-click="select_graph('last 7 days')">Last 7 days</button>
-            <button class="btn btn-default" ng-class="{'btn-primary': is_graph_showing('last 30 days')}" ng-click="select_graph('last 30 days')">Last 30 days</button>
-        </div>
+        {% if no_measurements_yet %}
+            <h2>Please add at least a <a href="{% url 'admin:chinup_metric_add' %}">Metric</a> and <a href="../input/">enter some Metric records</a>!</h2>
+        {% else %}
+            <div class="btn-group">
+                <button class="btn btn-default" ng-class="{'btn-primary': is_graph_showing('month-to-month')}"
+                        ng-click="select_graph('month-to-month')">Month-to-month
+                </button>
+                <button class="btn btn-default" ng-class="{'btn-primary': is_graph_showing('week-to-week')}"
+                        ng-click="select_graph('week-to-week')">Week-to-week
+                </button>
+                <button class="btn btn-default" ng-class="{'btn-primary': is_graph_showing('day-to-day')}"
+                        ng-click="select_graph('day-to-day')">Day-to-day
+                </button>
+                <button class="btn btn-default" ng-class="{'btn-primary': is_graph_showing('last 7 days')}"
+                        ng-click="select_graph('last 7 days')">Last 7 days
+                </button>
+                <button class="btn btn-default" ng-class="{'btn-primary': is_graph_showing('last 30 days')}"
+                        ng-click="select_graph('last 30 days')">Last 30 days
+                </button>
+            </div>
 
-        <div id="monthly" ng-show="is_graph_showing('month-to-month')"></div>
-        <div id="weekly" ng-show="is_graph_showing('week-to-week')"></div>
-        <div id="day_of_week" ng-show="is_graph_showing('day-to-day')"></div>
-        <div id="last_7_days" ng-show="is_graph_showing('last 7 days')"></div>
-        <div id="last_30_days" ng-show="is_graph_showing('last 30 days')"></div>
+            <div id="monthly" ng-show="is_graph_showing('month-to-month')"></div>
+            <div id="weekly" ng-show="is_graph_showing('week-to-week')"></div>
+            <div id="day_of_week" ng-show="is_graph_showing('day-to-day')"></div>
+            <div id="last_7_days" ng-show="is_graph_showing('last 7 days')"></div>
+            <div id="last_30_days" ng-show="is_graph_showing('last 30 days')"></div>
+        {% endif %}
     </div>
 
     <script src="{% static "js/stats.js" %}"></script>

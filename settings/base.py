@@ -27,7 +27,6 @@ RAVEN_CONFIG = {
     'dsn': SENTRY_DSN
 }
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
