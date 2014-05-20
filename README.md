@@ -27,8 +27,7 @@ I'm hoping this helps me pursue all of those things by simply being a healthy an
 ### Isn't this just like a really dumbed down workout tracker? ###
 Totally.
 
-It's not meant to be for one specific goal, but all of my goals boiled down to their most basic components. Ever since
-my family has left I'm having a hard time feeling much worth.
+It's not meant to be for one specific goal, but all of my goals boiled down to their most basic components.
 
 Sometimes it feels like even if I got a world record, made a million dollar idea come to fruition, or wrote some amazing
 novel programming library I'd still feel unhappy. That's why I need to start worrying about these metrics.
