@@ -1,5 +1,7 @@
 import datetime
 import qsstats
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
 
 from django.db.models import Avg
 from django.shortcuts import render
@@ -17,14 +19,20 @@ def stats_view(request):
     last_7_days = {}
     last_30_days = {}
 
-    earliest_recorded_entry = MetricRecord.objects.all().order_by('datetime')[:1][0]
 
-    max_days = datetime.datetime.now().date() - earliest_recorded_entry.datetime
+    if MetricRecord.objects.exists():
+        earliest_recorded_entry = MetricRecord.objects.all().order_by('datetime')[:1][0]
 
-    if days > max_days.days:
-        days = max_days.days
+        max_days = datetime.date.today() - earliest_recorded_entry.datetime
 
-    print earliest_recorded_entry
+        if days > max_days.days:
+            days = max_days.days
+
+        print earliest_recorded_entry
+    else:
+        return render(request, "stats/stats.html", {
+            'error': 'Please add at least a <a href="%s">Metric</a> and <a href="../input/">enter some Metric records</a>.' % reverse('admin:chinup_metric_add')
+        })
 
     for m in metrics:
         month_query = MetricRecord.objects.filter(metric=m, measurement__gt=0)
