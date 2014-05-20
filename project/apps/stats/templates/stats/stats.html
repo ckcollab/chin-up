@@ -5,6 +5,9 @@
 
 {% block content %}
     <div class="container graph-container" ng-controller="StatsController" ng-init="init_graphs()">
+        {% if error %}
+            <p class="alert alert-warning">{{error|safe}}</p>
+        {% endif %}
         <div class="btn-group">
             <button class="btn btn-default" ng-class="{'btn-primary': is_graph_showing('month-to-month')}" ng-click="select_graph('month-to-month')">Month-to-month</button>
             <button class="btn btn-default" ng-class="{'btn-primary': is_graph_showing('week-to-week')}" ng-click="select_graph('week-to-week')">Week-to-week</button>
@@ -19,6 +22,8 @@
         <div id="last_7_days" ng-show="is_graph_showing('last 7 days')"></div>
         <div id="last_30_days" ng-show="is_graph_showing('last 30 days')"></div>
     </div>
+
+
 
     <script src="{% static "js/stats.js" %}"></script>
     <script type="text/javascript">
