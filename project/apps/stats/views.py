@@ -1,6 +1,5 @@
 import datetime
 import qsstats
-from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
 from django.db.models import Avg
@@ -21,7 +20,7 @@ def stats_view(request):
 
 
     if MetricRecord.objects.exists():
-        earliest_recorded_entry = MetricRecord.objects.all().order_by('datetime')[:1][0]
+        earliest_recorded_entry = MetricRecord.objects.order_by('datetime').first()
 
         max_days = datetime.date.today() - earliest_recorded_entry.datetime
 
@@ -91,7 +90,10 @@ def stats_view(request):
                 if i[1] < 1:
                     zeroes += 1
 
-            days_of_week[day] = (None, float(total / (len(days_of_week[day]) - zeroes)))
+            days_of_week[day] = (
+                None,
+                float(total / (len(days_of_week[day]) - zeroes)) if (len(days_of_week[day]) - zeroes) else 0.0
+            )
 
         daily[key] = [v for d, v in days_of_week.items()]
 
