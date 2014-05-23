@@ -100,7 +100,13 @@ Example tracking items
 
 If you want the same setup I have, go to the `admin` screen and add these items.
 
-### Daily tracking ###
+### Daily checklist (binary=True)
+- Vitamins
+- Coffee
+- 20 pushups for 3 sets
+- 20 squats for 3 sets
+
+### Daily tracking
 - Happy
     * 1 being seeing my mom with tubes coming out of her face and head
     * 10 being happiest I've ever been, nothing feels impossible
@@ -120,7 +126,7 @@ If you want the same setup I have, go to the `admin` screen and add these items.
     * 1 being I got into a huge argument and feel terrible
     * 10 being we made dinner together and wrote each other poetry
 
-### Monthly tracking ###
+### Monthly tracking
 - Life goals
     * 1 being no progress towards goals and very depressed
     * 10 being I got a world record deadlift
