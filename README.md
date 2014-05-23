@@ -105,6 +105,7 @@ If you want the same setup I have, go to the `admin` screen and add these items.
 - Coffee
 - 20 pushups for 3 sets
 - 20 squats for 3 sets
+- (a lot more, this depends entirely on what you do/want to do every day)
 
 ### Daily tracking
 - Happy
