@@ -55,9 +55,6 @@ def input(request):
         # First day of month let's do monthly as well, otherwise filter them out
         metrics = Metric.objects.filter(daily=True, monthly=False)
 
-    #daily_checklist = Metric.objects.filter(daily=True, boolean=True)
-    # monthly_checklist -- not used yet
-
     metric_records = [MetricRecord.objects.get_or_create(datetime=date, metric=m)[0] for m in metrics]
     metric_records_pks = [m.pk for m in metric_records]
 
@@ -70,13 +67,8 @@ def input(request):
             if int(metric_pk) in metric_records_pks:
                 for m in metric_records:
                     if m.pk == int(metric_pk):
-                        print type(value)
-
                         m.notes = value.get('notes', None)
                         m.measurement = value['measurement']
-
-
-
                         m.save()
 
         return HttpResponse(status=200)
