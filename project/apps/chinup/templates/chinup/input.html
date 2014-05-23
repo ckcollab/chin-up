@@ -27,7 +27,7 @@
                                                ng-init="init_recording('{{ record.pk }}', 'measurement', {{ record.measurement }}, 'checklist')">
                                         {{ record.metric.name }}
                                     </label><br>
-                                    {% if forloop.counter|divisibleby:"3" %}
+                                    {% if forloop.counter|divisibleby:"4" %}
                                         </div>
                                         <div class="col-lg-3">
                                     {% endif %}
