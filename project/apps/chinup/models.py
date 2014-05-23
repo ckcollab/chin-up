@@ -19,6 +19,12 @@ class Metric(models.Model):
         if self.monthly:
             return "monthly"
 
+    def is_boolean_string(self):
+        if self.boolean:
+            return "boolean"
+        else:
+            return ""
+
     def average_span(self, day_span=30):
         avg = MetricRecord.objects.filter(
             metric=self,
@@ -31,7 +37,8 @@ class Metric(models.Model):
     #def average_range(self, ):
 
     def __unicode__(self):
-        return "%s (%s)" % (self.name, self.how_often_string())
+
+        return "%s (%s) %s" % (self.name, self.how_often_string(), self.is_boolean_string())
 
 
 class MetricRecord(models.Model):
