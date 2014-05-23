@@ -33,8 +33,8 @@ def home(request):
 
     return render(request, 'chinup/home.html', {
         'daily_metric_span': daily_metric_span,
-        'daily_metrics': append_avg_measurement(Metric.objects.filter(daily=True), day_span=daily_metric_span),
-        'monthly_metrics': append_avg_measurement(Metric.objects.filter(monthly=True), day_span=120),
+        'daily_metrics': append_avg_measurement(Metric.objects.filter(daily=True, boolean=False), day_span=daily_metric_span),
+        'monthly_metrics': append_avg_measurement(Metric.objects.filter(monthly=True, boolean=False), day_span=120),
         'notes': notes,
         }
     )
@@ -55,6 +55,9 @@ def input(request):
         # First day of month let's do monthly as well, otherwise filter them out
         metrics = Metric.objects.filter(daily=True, monthly=False)
 
+    #daily_checklist = Metric.objects.filter(daily=True, boolean=True)
+    # monthly_checklist -- not used yet
+
     metric_records = [MetricRecord.objects.get_or_create(datetime=date, metric=m)[0] for m in metrics]
     metric_records_pks = [m.pk for m in metric_records]
 
@@ -63,17 +66,24 @@ def input(request):
 
         for metric_pk, value in data.items():
             # Make sure we aren't editing something we dont mean to, like if we didnt refresh the page since yesterday
+            # it will only be working with datetime=today() by default
             if int(metric_pk) in metric_records_pks:
                 for m in metric_records:
                     if m.pk == int(metric_pk):
-                        m.notes = value['notes']
+                        print type(value)
+
+                        m.notes = value.get('notes', None)
                         m.measurement = value['measurement']
+
+
+
                         m.save()
 
         return HttpResponse(status=200)
 
     return render(request, 'chinup/input.html', {
-        'daily_metrics': [m for m in metric_records if m.metric.daily],
+        'daily_checklist': [m for m in metric_records if m.metric.daily and m.metric.boolean],
+        'daily_metrics': [m for m in metric_records if m.metric.daily and not m.metric.boolean],
         'monthly_metrics': [m for m in metric_records if m.metric.monthly],
         'day_of_month': day_of_month,
         'date': date,

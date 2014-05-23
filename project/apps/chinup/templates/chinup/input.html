@@ -17,6 +17,19 @@
                 <div class="panel-body">
                     <ng-form name="metric_form">
                         {% csrf_token %}
+                        <div class="col-lg-12">
+                            {% for record in daily_checklist %}
+                                <label class="checkbox-inline">
+                                    <input type="checkbox"
+                                           name="metric_{{ record.pk }}"
+                                           ng-model="metrics['{{ record.pk }}']['measurement']"
+                                           ng-init="init_recording('{{ record.pk }}', 'measurement', {{ record.measurement }}, 'checklist')">
+                                    {{ record.metric.name }}
+                                </label>
+                            {% endfor %}
+                        </div>
+
+
                         {% for record in daily_metrics %}
                             <div class="col-lg-6">
                                 <h3>

@@ -6,10 +6,11 @@ from django.db import models
 
 class Metric(models.Model):
     name = models.CharField(max_length=100)
-    description_worst = models.TextField()
-    description_best = models.TextField()
+    description_worst = models.TextField(null=True, blank=True)
+    description_best = models.TextField(null=True, blank=True)
     daily = models.BooleanField(default=True)
     monthly = models.BooleanField(default=False)
+    boolean = models.BooleanField(default=False)
 
     def how_often_string(self):
         if self.daily:
@@ -38,6 +39,13 @@ class MetricRecord(models.Model):
     datetime = models.DateField()
     measurement = models.IntegerField(default=5, blank=True)
     notes = models.TextField(null=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        # Boolean should default to 0, not 5!
+        if self.pk is None and self.metric.boolean:
+            self.measurement = 0
+
+        super(MetricRecord, self).save(*args, **kwargs)
 
     def __unicode__(self):
         return "Record for %s %s on %s" % (self.measurement, self.metric.name, self.datetime)

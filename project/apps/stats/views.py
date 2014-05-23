@@ -13,7 +13,7 @@ class StatsView(object):
         self.request = request
 
         if MetricRecord.objects.exists():
-            self.metrics = Metric.objects.all()
+            self.metrics = Metric.objects.filter(boolean=False)
             self.days = int(request.GET.get('days', 365))
             self.earliest_recorded_entry = MetricRecord.objects.all().order_by('datetime')[:1][0]
             self.max_days = datetime.datetime.now().date() - self.earliest_recorded_entry.datetime
