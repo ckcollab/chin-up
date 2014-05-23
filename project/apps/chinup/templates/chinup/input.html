@@ -17,53 +17,60 @@
                 <div class="panel-body">
                     <ng-form name="metric_form">
                         {% csrf_token %}
-                        <div class="col-lg-12">
-                            {% for record in daily_checklist %}
-                                <label class="checkbox-inline">
-                                    <input type="checkbox"
-                                           name="metric_{{ record.pk }}"
-                                           ng-model="metrics['{{ record.pk }}']['measurement']"
-                                           ng-init="init_recording('{{ record.pk }}', 'measurement', {{ record.measurement }}, 'checklist')">
-                                    {{ record.metric.name }}
-                                </label>
-                            {% endfor %}
+                        <div class="row">
+                            <div class="col-lg-3">
+                                {% for record in daily_checklist %}
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox"
+                                               name="metric_{{ record.pk }}"
+                                               ng-model="metrics['{{ record.pk }}']['measurement']"
+                                               ng-init="init_recording('{{ record.pk }}', 'measurement', {{ record.measurement }}, 'checklist')">
+                                        {{ record.metric.name }}
+                                    </label><br>
+                                    {% if forloop.counter|divisibleby:"3" %}
+                                        </div>
+                                        <div class="col-lg-3">
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
                         </div>
 
-
-                        {% for record in daily_metrics %}
-                            <div class="col-lg-6">
-                                <h3>
-                                    <span
-                                            class="label"
-                                            ng-bind="metrics['{{ record.pk }}']['measurement']"
-                                            ng-style="{'background-color': convert_measurement_to_hsl(metrics['{{ record.pk }}']['measurement'])}"
-                                    >
-                                        5
-                                    </span>
-                                    {{ record.metric.name }}
-                                </h3>
-                                <small>{{ record.metric.description_worst }}</small><br>
-                                <small>{{ record.metric.description_best }}</small>
-
-                                <div class="metric_input">
-                                    <input
-                                            type="range"
-                                            name="metric_{{ record.pk }}"
-                                            ng-model="metrics['{{ record.pk }}']['measurement']"
-                                            ng-init="init_recording('{{ record.pk }}', 'measurement', {{ record.measurement }})"
-                                            min="1"
-                                            max="10"
-                                            >
-                                </div>
-
-                                <textarea
-                                        class="col-lg-12"
-                                        ng-model="metrics['{{ record.pk }}']['notes']"
-                                        ng-init="init_recording('{{ record.pk }}', 'notes', '{{ record.notes|default:""|addslashes }}')"
+                        <div class="row">
+                            {% for record in daily_metrics %}
+                                <div class="col-lg-6">
+                                    <h3>
+                                        <span
+                                                class="label"
+                                                ng-bind="metrics['{{ record.pk }}']['measurement']"
+                                                ng-style="{'background-color': convert_measurement_to_hsl(metrics['{{ record.pk }}']['measurement'])}"
                                         >
-                                </textarea>
-                            </div>
-                        {% endfor %}
+                                            5
+                                        </span>
+                                        {{ record.metric.name }}
+                                    </h3>
+                                    <small>{{ record.metric.description_worst }}</small><br>
+                                    <small>{{ record.metric.description_best }}</small>
+
+                                    <div class="metric_input">
+                                        <input
+                                                type="range"
+                                                name="metric_{{ record.pk }}"
+                                                ng-model="metrics['{{ record.pk }}']['measurement']"
+                                                ng-init="init_recording('{{ record.pk }}', 'measurement', {{ record.measurement }})"
+                                                min="1"
+                                                max="10"
+                                                >
+                                    </div>
+
+                                    <textarea
+                                            class="col-lg-12"
+                                            ng-model="metrics['{{ record.pk }}']['notes']"
+                                            ng-init="init_recording('{{ record.pk }}', 'notes', '{{ record.notes|default:""|addslashes }}')"
+                                            >
+                                    </textarea>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </ng-form>
                 </div>
             </div>
