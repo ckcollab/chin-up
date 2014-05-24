@@ -31,6 +31,9 @@
                                         </div>
                                         <div class="col-lg-3">
                                     {% endif %}
+
+                                {% empty %}
+                                    <a href="{% url 'admin:chinup_metric_add' %}?boolean=true">Add daily metric with boolean=True</a>
                                 {% endfor %}
                             </div>
                         </div>
