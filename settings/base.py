@@ -107,7 +107,6 @@ BASE_AND_LIBRARY_APPS = (
     'django.contrib.staticfiles',
 
     'south',
-    #'debug_toolbar',
     'gunicorn',
     'django_extensions',
     'pin_passcode',

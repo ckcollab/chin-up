@@ -52,7 +52,7 @@ def input(request):
     metrics = Metric.objects.all()
 
     if day_of_month != 1:
-        # First day of month let's do monthly as well, otherwise filter them out
+        # Not first day of month, so filter out monthly
         metrics = Metric.objects.filter(daily=True, monthly=False)
 
     metric_records = [MetricRecord.objects.get_or_create(datetime=date, metric=m)[0] for m in metrics]
