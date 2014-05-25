@@ -7,7 +7,7 @@ from chinup.models import Metric, MetricRecord
 
 def correlation_view(request):
     # Get all metric names and data
-    metric_objects = Metric.objects.filter(metric__daily=True).values_list('name')
+    metric_objects = Metric.objects.filter(daily=True).values_list('name')
     metric_names = [m[0] for m in metric_objects]
     data = {m: [] for m in metric_names}
     raw_data = []
