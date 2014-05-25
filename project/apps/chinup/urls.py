@@ -14,6 +14,7 @@ urlpatterns = patterns('',
 
     url(r'^', include('pin_passcode.urls')),
     url(r'^', include('stats.urls')),
+    url(r'^', include('correlations.urls')),
 )
 
 if settings.DEBUG:

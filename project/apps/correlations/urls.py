@@ -5,5 +5,5 @@ from django.contrib import admin
 
 urlpatterns = patterns(
     '',
-    url(r'stats[/]$', 'stats.views.stats_view', name='stats'),
+    url(r'correlations[/]$', 'correlations.views.correlation_view', name='correlations'),
 )

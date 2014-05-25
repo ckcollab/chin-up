@@ -34,10 +34,7 @@ class Metric(models.Model):
 
         return avg['measurement__avg']
 
-    #def average_range(self, ):
-
     def __unicode__(self):
-
         return "%s (%s) %s" % (self.name, self.how_often_string(), self.is_boolean_string())
 
 

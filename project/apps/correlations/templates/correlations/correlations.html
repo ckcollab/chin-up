@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        {% for metric_name1, metric_name2, result in results %}
+            {{ metric_name1 }} -> {{ metric_name2 }} = {{ result }}<br>
+        {% endfor %}
+    </div>
+{% endblock %}

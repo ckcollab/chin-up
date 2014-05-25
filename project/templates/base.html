@@ -37,6 +37,9 @@
                 <li {% if 'stats/' in request.path %}class="active"{% endif %}>
                     <a href="/stats/?days=365">Graphs</a>
                 </li>
+                <li {% if 'correlations/' in request.path %}class="active"{% endif %}>
+                    <a href="/correlations/?days=365">Correlations</a>
+                </li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
