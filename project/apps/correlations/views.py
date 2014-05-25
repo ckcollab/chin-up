@@ -11,7 +11,7 @@ def correlation_view(request):
     metric_names = [m[0] for m in metric_objects]
     data = {m: [] for m in metric_names}
     raw_data = []
-    all_measurements = MetricRecord.objects.all()
+    all_measurements = MetricRecord.objects.filter(metric__daily=True)
 
     for m in all_measurements:
         data[m.metric.name].append(m.measurement)
