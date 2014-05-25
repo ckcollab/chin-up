@@ -55,7 +55,7 @@ TIME_ZONE = 'US/Pacific'
 
 Install requirements
 ```
-pip install -r requirements/base.txt
+pip install -r requirements.txt
 ```
 
 Syncdb and migrate
