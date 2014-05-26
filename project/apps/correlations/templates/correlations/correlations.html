@@ -16,11 +16,11 @@
         </select>
 
         {% for metric_name, metric_tuple in metric_results.items %}
-            <div id="correlation_{{ metric_name|cut:" ?" }}" ng-show="selected_correlation == '{{ metric_name }}'"></div>
+            <div id="correlation_{{ metric_name|cut:" "|cut:"?" }}" ng-show="selected_correlation == '{{ metric_name }}'"></div>
 
             <script type="text/javascript">
                 $(function() {
-                    $('#correlation_{{ metric_name|cut:" ?" }}').highcharts({
+                    $('#correlation_{{ metric_name|cut:" "|cut:"?" }}').highcharts({
                         chart: {
                             type: 'column'
                         },
