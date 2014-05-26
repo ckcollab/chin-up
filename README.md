@@ -86,7 +86,8 @@ Stats
 Correlations
 ============
 
-Thanks to numpy I added really quick correlations between metrics, it's pretty ugly:
+Thanks to numpy I added really quick correlations between metrics, it's pretty ugly but it will tell you what metrics
+might positively/negatively correlate to each other.
 
 ![correlations](docs/img/screenshots/correlations.png)
 
