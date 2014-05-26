@@ -29,12 +29,16 @@ def correlation_view(request):
         raw_data.append(data[metric_name])
 
     results_raw = corrcoef(raw_data)
-    result = []
+    metric_results = {}
 
     for index_1, metric_name_1,  in enumerate(data):
         for index_2, metric_name_2 in enumerate(data):
-            result.append((metric_name_1, metric_name_2, results_raw[index_1, index_2]),)
+            if metric_name_1 not in metric_results:
+                metric_results[metric_name_1] = []
+
+            if metric_name_1 != metric_name_2:
+                metric_results[metric_name_1].append((metric_name_1, metric_name_2, results_raw[index_1, index_2]),)
 
     return render(request, "correlations/correlations.html", {
-                'results': result
+                'metric_results': metric_results
             })

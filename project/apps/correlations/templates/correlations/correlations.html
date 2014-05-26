@@ -1,11 +1,66 @@
 {% extends "base.html" %}
 
 {% load static %}
+{% load correlation_tags %}
 
 {% block content %}
-    <div class="container">
-        {% for metric_name1, metric_name2, result in results %}
-            {{ metric_name1 }} -> {{ metric_name2 }} = {{ result }}<br>
+    <script src="{% static "js/correlations.js" %}"></script>
+
+    <div class="container" ng-controller="CorrelationsController">
+        <div ng-init="selected_correlation = '{{ metric_results.keys.0 }}'"></div>
+
+        <select class="form-control correlation_selector" ng-model="selected_correlation" ng-change="resize_graph()">
+            {% for metric_name in metric_results.keys %}
+                <option>{{ metric_name }}</option>
+            {% endfor %}
+        </select>
+
+        {% for metric_name, metric_tuple in metric_results.items %}
+            <div id="correlation_{{ metric_name }}" ng-show="selected_correlation == '{{ metric_name }}'"></div>
+
+            <script type="text/javascript">
+                $(function() {
+                    $('#correlation_{{ metric_name }}').highcharts({
+                        chart: {
+                            type: 'column'
+                        },
+                        title: {
+                            text: '{{ metric_name|capfirst }}'
+                        },
+                        xAxis: {
+                            categories: [
+                                {% for metric_name1, metric_name2, result in metric_tuple %}
+                                    '{{ metric_name2 }}',
+                                {% endfor %}
+                            ]
+                        },
+                        yAxis: {
+                            min: -1,
+                            max: 1
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        series: [
+                            {
+                                name: 'Correlation',
+                                data: [
+                                    {% for metric_name1, metric_name2, result in metric_tuple %}
+                                        {% if result|is_numeric %}
+                                            {
+                                                y: {{ result }},
+                                                color: {% if result > 0 %}'#7cb5ec'{% else %}'#F16565'{% endif %}
+                                            },
+                                        {% else %}
+                                            0,
+                                        {% endif %}
+                                    {% endfor %}
+                                ]
+                            }
+                        ]
+                    });
+                });
+            </script>
         {% endfor %}
     </div>
 {% endblock %}
