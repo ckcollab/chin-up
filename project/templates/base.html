@@ -30,21 +30,21 @@
         <div class="collapse navbar-collapse" id="navbar-mobile-menu">
             <ul class="nav navbar-nav">
                 <li {% if '/' == request.path %}class="active"{% endif %}>
-                    <a href="/">Home</a>
+                    <a href="/"><i class="glyphicon glyphicon-home"></i> Home</a>
                 </li>
                 <li {% if 'input/' in request.path %}class="active"{% endif %}>
-                    <a href="/input/?date={%  now "d M Y" %}">Input</a>
+                    <a href="/input/?date={%  now "d M Y" %}"><i class="glyphicon glyphicon-import"></i> Input</a>
                 </li>
                 <li {% if 'stats/' in request.path %}class="active"{% endif %}>
-                    <a href="/stats/?days=365">Graphs</a>
+                    <a href="/stats/?days=365"><i class="glyphicon glyphicon-stats"></i> Graphs</a>
                 </li>
                 <li {% if 'correlations/' in request.path %}class="active"{% endif %}>
-                    <a href="/correlations/?days=365">Correlations</a>
+                    <a href="/correlations/?days=365"><i class="glyphicon glyphicon-transfer"></i> Correlations</a>
                 </li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{% url "auth:logout" %}">Logout</a> </li>
+                <li><a href="{% url "auth:logout" %}"><i class="glyphicon glyphicon-off"></i> Logout</a> </li>
             </ul>
         </div>
     </nav>
