@@ -83,6 +83,14 @@ Stats
  * **30 day** - Last 30 day simple
 
 
+Correlations
+============
+
+Thanks to numpy I added really quick correlations between metrics, it's pretty ugly:
+
+![correlations](docs/img/screenshots/correlations.png)
+
+
 
 Easy login
 ==========
