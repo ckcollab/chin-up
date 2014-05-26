@@ -49,7 +49,7 @@ export PIN_PASSCODE_PIN=1234        # the passcode required to login as the abov
 
 Setup your timezone
 ```python
-# settings.py
+# settings/base.py
 TIME_ZONE = 'US/Pacific'
 ```
 
