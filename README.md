@@ -102,16 +102,6 @@ To make Chin Up easier to use, I made a simple app and threw it on pypi called [
 It logs you in to the user you define after you enter a certain passcode composed of 0-9 and #.
 
 
-Correlations
-============
-
-<p align="center" class="image-wrapper">
-    <img src="https://raw.githubusercontent.com/ckcollab/chin-up/master/docs/img/screenshots/correlations.png" alt="Correlations" class="image-full-width">
-</p>
-
-Thanks to numpy I added really quick correlations between metrics, it's pretty ugly but it will tell you what metrics
-might positively/negatively correlate to each other.
-
 
 Example tracking items
 ======================
