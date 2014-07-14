@@ -101,7 +101,7 @@ Easy login
 To make Chin Up easier to use, I made a simple app and threw it on pypi called [django-pin-passcode](https://github.com/ckcollab/django-pin-passcode).
 It logs you in to the user you define after you enter a certain passcode composed of 0-9 and #.
 
-
+lonc b3pq k2rr lk6w hrf5 ybvl swbf iz5m
 
 Example tracking items
 ======================
