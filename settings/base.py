@@ -129,9 +129,6 @@ TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 
-
-
-
 # Django pin passcode
 PIN_PASSCODE_USERNAME = os.environ.get('PIN_PASSCODE_USERNAME', 'admin')
 PIN_PASSCODE_PIN = os.environ.get('PIN_PASSCODE_PIN')

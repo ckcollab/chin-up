@@ -1,11 +1,11 @@
+import logging
 import os
 
 from .base import *
 
 
-import logging
-logger = logging.getLogger('waitress')
-logger.setLevel(logging.INFO)
+# logger = logging.getLogger('waitress')
+# logger.setLevel(logging.DEBUG)
 
 
 logging.basicConfig(
