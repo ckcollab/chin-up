@@ -110,7 +110,7 @@ BASE_AND_LIBRARY_APPS = (
     'gunicorn',
     'django_extensions',
     'pin_passcode',
-    'raven.contrib.django.raven_compat',
+    #'raven.contrib.django.raven_compat',
 )
 
 CHIN_UP_APPS = (
