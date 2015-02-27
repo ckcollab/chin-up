@@ -18,3 +18,4 @@ wsgiref==0.1.2
 django-qsstats-magic
 numpy==1.8.1
 bugsnag==2.2.0
+django-grappelli==2.6.3

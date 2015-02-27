@@ -99,6 +99,8 @@ ROOT_URLCONF = 'chinup.urls'
 WSGI_APPLICATION = 'wsgi.application'
 
 BASE_AND_LIBRARY_APPS = (
+    # Add grappelli before admin
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -111,7 +113,6 @@ BASE_AND_LIBRARY_APPS = (
     'gunicorn',
     'django_extensions',
     'pin_passcode',
-    #'raven.contrib.django.raven_compat',
 )
 
 CHIN_UP_APPS = (
