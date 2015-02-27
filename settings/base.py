@@ -90,6 +90,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'pin_passcode.middleware.PinPasscodeMiddleware',
+    "bugsnag.django.middleware.BugsnagMiddleware",
 )
 
 ROOT_URLCONF = 'chinup.urls'
@@ -110,7 +111,7 @@ BASE_AND_LIBRARY_APPS = (
     'gunicorn',
     'django_extensions',
     'pin_passcode',
-    'raven.contrib.django.raven_compat',
+    #'raven.contrib.django.raven_compat',
 )
 
 CHIN_UP_APPS = (
@@ -129,9 +130,12 @@ TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 
-
-
-
 # Django pin passcode
 PIN_PASSCODE_USERNAME = os.environ.get('PIN_PASSCODE_USERNAME', 'admin')
 PIN_PASSCODE_PIN = os.environ.get('PIN_PASSCODE_PIN')
+
+# Bugsnag
+BUGSNAG = {
+    "api_key": os.environ.get('BUGSNAG_API_KEY'),
+    "project_root": PROJECT_ROOT,
+}
