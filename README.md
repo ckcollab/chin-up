@@ -45,6 +45,8 @@ export DATABASE_HOST='localhost'
 
 export PIN_PASSCODE_USERNAME='eric' # user to sign in as, defaults to "admin"
 export PIN_PASSCODE_PIN=1234        # the passcode required to login as the above user, using 0-9 and #
+
+export DJANGO_SECRET_KEY='blehblah'
 ```
 
 Setup your timezone
